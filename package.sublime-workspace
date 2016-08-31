@@ -1,0 +1,228 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fo",
+				"form"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"lo",
+				"login"
+			],
+			[
+				"ap",
+				"app"
+			],
+			[
+				"ge",
+				"get"
+			],
+			[
+				"app",
+				"app〔variable〕"
+			],
+			[
+				"c",
+				"cl	console.log"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/NodeJs.sublime-build",
+	"command_palette":
+	{
+		"height": 104.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/TortoiseSVN/TortoiseSVN.sublime-settings",
+		"/C/Users/Administrator/microblog/routes/index.js",
+		"/C/Users/Administrator/microblog/app.js",
+		"/C/Users/Administrator/microblog/views/login.ejs",
+		"/C/Users/Administrator/microblog/views/layout.ejs",
+		"/C/Users/Administrator/microblog/bin/www",
+		"/C/Users/Administrator/Desktop/欧盟与中国.rar",
+		"/C/Users/Administrator/microblog/views/index.ejs",
+		"/C/Users/Administrator/microblog/views/reg",
+		"/C/Users/Administrator/microblog/npm-debug.log",
+		"/C/Users/Administrator/microblog/routes/users.js",
+		"/E/nodejs workspace/imooc/app.js",
+		"/E/nodejs workspace/imooc/getmodule.js",
+		"/E/nodejs workspace/imooc/module.js",
+		"/C/Users/Administrator/microblog/package.json",
+		"/E/nodejs workspace/imooc/student.js",
+		"/E/EclipseWorkspace/demo1/WebRoot/exam.js",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/NodeJs.sublime-build",
+		"/E/实验/校园生活指南系统/test.js"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 174.0,
+	"status_bar_visible": true
+}
