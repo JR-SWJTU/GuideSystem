@@ -1,73 +1,131 @@
 
 <!DOCTYPE html>
-<head>
-	<title><%= title %></title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">	
-</head>
-<body class="templatemo-bg-gray">
-	<div class="container">
-		<div class="col-md-12">
-			<h1 class="margin-bottom-15">Login Page</h1>
-			<form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form"  method="post">				
-		        <div class="form-group">
-		          <div class="col-xs-12">		            
-		            <div class="control-wrapper">
-		            	<label for="Student_id" class="control-label fa-label"><i class="fa fa-user fa-medium"></i></label>
-		            	<input type="text" class="form-control" name = "Student_id" id="Student_id" placeholder="Student ID">
-		            </div>		            	            
-		          </div>              
-		        </div>
-		        <div class="form-group">
-		          <div class="col-md-12">
-		          	<div class="control-wrapper">
-		            	<label for="Password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
-		            	<input type="password" class="form-control" name= "Password" id="Password" placeholder="Password">
-		            </div>
-		          </div>
-		        </div>
-		        <div class="form-group">
-		          <div class="col-md-12">
-	             	<div class="checkbox control-wrapper">
-	                	<label>
-	                  		<input type="checkbox"> Remember me
-                		</label>
-	              	</div>
-		          </div>
-		        </div>
-		        <div class="form-group">
-		          <div class="col-md-12">
-		          	<div class="control-wrapper">
-		          		<input type="submit" value="Login" class="btn btn-info">
-		          		<a href="forgot-password.html" class="text-right pull-right">Forgot password?</a>
-		          	</div>
-		          </div>
-		        </div>
-		        <hr>
-		        <div class="form-group">
-		        	<div class="col-md-12">
-		        		<label>Login with: </label>
-		        		<div class="inline-block">
-		        			<a href="#"><i class="fa fa-facebook-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-twitter-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-google-plus-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-tumblr-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-github-square login-with"></i></a>
-		        		</div>		        		
-		        	</div>
-		        </div>
-		      </form>
-		      <div class="text-center">
-		      	<a href="../register" class="templatemo-create-new">Create new account <i class="fa fa-arrow-circle-o-right"></i></a>	
-		      </div>
-		</div>
-	</div>
-</body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Login | 交大生活指南系统</title>  
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="coco bootstrap template, coco admin, bootstrap,admin template, bootstrap admin,">
+        <meta name="author" content="Huban Creative">
+
+        <link href="/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/libs/pace/pace.css" rel="stylesheet" />
+        <link href="/libs/animate-css/animate.min.css" rel="stylesheet" />
+        <link href="/libs/iconmoon/style.css" rel="stylesheet" />
+
+        <!-- LESS FILE <link href="/css/style.less" rel="stylesheet/less" type="text/css" /> -->
+                <!-- Extra CSS Libraries Start -->
+                <link href="/css/style.css" rel="stylesheet" type="text/css" />
+                <!-- Extra CSS Libraries End -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <link rel="shortcut icon" href="/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png" />    
+    </head>
+
+<body class="">
+    <div id="wrapper">    
+
+
+    <header>
+    <div id="topbar">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-xs-6">
+      <span class="hidden-sm hidden-xs"><i class="icon-location4"></i>1375 RICHMOND AVE. MN </span><span class="vertical-space"></span> <i class="icon-phone4"></i>1-800-666-666
+      </div>
+      <div class="col-sm-6 col-xs-6 text-right">
+        <div class="btn-group social-links hidden-sm hidden-xs">  
+          <a href="javascript:;" class="btn btn-link"><i class="icon-facebook4"></i></a>
+          <a href="javascript:;" class="btn btn-link"><i class="icon-twitter4"></i></a>
+        </div>
+        <a href="login.html" class="login-button">LOGIN</a><a href="/register" class="signup-button">SIGN UP</a>
+      </div>
+    </div>
+    <div class="top-divider"></div>
+    </div>
+    </div>       
+
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                    <span class="icon-navicon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="/img/logo.png" data-dark-src="/img/logo_dark.png" alt="Coco Frontend Template" class="logo">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-->
+    </nav>        <section class="main-slider fullsize" data-stellar-background-ratio="0.5" style="background-image: url(images/headers/signup-login.jpg)">
+  <div class="slider-caption">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <form class="form-signin" role="form">
+                <h2 class="form-signin-heading">LOGIN</h2>
+                <div class="form-group">
+                    <input type="email" class="form-control input-lg" placeholder="E-mail address" required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control input-lg" placeholder="Password" required>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">LOGIN</button><br>
+                Need an account? <a href="/register">Sign up</a> now!
+              </form>
+            </div>
+        </div>
+      </div>  </div>
+</section>    </header>
+
+
+        <a class="tothetop" href="javascript:;"><i class="icon-angle-up"></i></a>
+    </div>
+
+    <script>
+        var resizefunc = [];
+    </script>
+    <script src="/libs/less-js/less-1.7.5.min.js"></script>
+    <script src="/libs/pace/pace.min.js"></script>
+    <script src="/libs/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/libs/jquery-browser/jquery.browser.min.js"></script>
+    <script src="/libs/fastclick/fastclick.js"></script>
+    <script src="/libs/stellarjs/jquery.stellar.min.js"></script>
+    <script src="/libs/jquery-appear/jquery.appear.js"></script>
+    <script src="/js/init.js"></script>
+    </body>
 </html>

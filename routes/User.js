@@ -4,6 +4,11 @@ var ErrorCode = require('../ErrorCode');
 
 var UserEntity = require('../models/User').UserEntity;
 
+// 测试用
+router.get('/', function(req, res) {
+	res.render('layout', { title: '测试用' });
+});
+
 
 //主页
 router.get('/mainPage', function(req, res) {
@@ -28,6 +33,7 @@ router.post('/login', function(req, res, next) {
 
 	UserEntity.findOne({ Student_id : Student_id}, function(err,user){
 		if(err){
+			req.session()
 			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
 			console.log('服务器异常');
 			return;
