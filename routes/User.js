@@ -4,11 +4,10 @@ var ErrorCode = require('../ErrorCode');
 
 var UserEntity = require('../models/User').UserEntity;
 
-// 测试用
+// 测试
 router.get('/', function(req, res) {
-	res.render('layout', { title: '测试用' });
+	res.render('layout', { title: '主页' });
 });
-
 
 //主页
 router.get('/mainPage', function(req, res) {
@@ -25,13 +24,13 @@ router.get('/login', function(req, res) {
 });
 router.post('/login', function(req, res, next) {
 	
-	var Student_id = req.body.Student_id;
+	var Email = req.body.Email;
 	var Password = req.body.Password;
 
-	console.log(Student_id);
+	console.log(Email);
 	console.log(Password);
 
-	UserEntity.findOne({ Student_id : Student_id}, function(err,user){
+	UserEntity.findOne({ Email : Email}, function(err,user){
 		if(err){
 			req.session()
 			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
@@ -56,11 +55,16 @@ router.get('/register', function(req, res) {
 });
 router.post('/register',function(req,res){
 
-	var Student_id = req.body.Student_id;
-	if ( !Student_id || Student_id.length < 10) {
+	var Email = req.body.Email;
+	if ( !Email || Email.length < 10) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'学号不能为空');
 		return;
 	};
+
+	var name = req.body.Name;
+	if( !name ){
+		return;
+	}
 
 	var Password = req.body.Password;
 	if ( !Password || Password.length < 6) {
@@ -75,11 +79,11 @@ router.post('/register',function(req,res){
 		return;
 	};
 
-	console.log(Student_id);
+	console.log(Email);
 	console.log(Password);
 	console.log(password_confirm);
 
-	UserEntity.findOne({ Student_id : Student_id}, function(err,user){
+	UserEntity.findOne({ Email : Email}, function(err,user){
 		if(err){
 			res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
 			return;
@@ -91,7 +95,8 @@ router.post('/register',function(req,res){
 		};
 
 		var registerEntity = new UserEntity({
-			Student_id : Student_id,
+			Name : name,
+			Email : Email,
 			Password : Password
 		});
 		registerEntity.save(function(err,row){
@@ -99,7 +104,7 @@ router.post('/register',function(req,res){
 				res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
 				return;
 			};
-			res.redirect('/login',{title : '登录'});
+			res.redirect('/mainPage',{title : '主页'});
 		});
 	});
 });

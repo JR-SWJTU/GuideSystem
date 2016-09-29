@@ -5,12 +5,12 @@ var mongoose = mongodb.mongoose;
 // 定义一个Schema
 var UserSchema = new mongoose.Schema({
 
-	Email : String,
+ 	_id:Schema.Types.ObjectId,  //主键
+	Email : { type: String, index: true },
 	Name : String,
 	Password : String
 });
 
-UserSchema.index({Email:1},{"background" : true});//设置索引
 
 // 将该Schema发布为Entity
 var UserEntity = mongoose.model('UserEntity',UserSchema,'user');//指定在数据库中的collection名称为user
