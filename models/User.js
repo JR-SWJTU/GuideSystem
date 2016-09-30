@@ -5,7 +5,6 @@ var mongoose = mongodb.mongoose;
 // 定义一个Schema
 var UserSchema = new mongoose.Schema({
 
- 	_id:Schema.Types.ObjectId,  //主键
 	Email : { type: String, index: true },
 	Name : String,
 	Password : String

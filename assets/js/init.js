@@ -37,7 +37,6 @@ var changeptype = function(){
 	    }else if(!$("#wrapper").hasClass("enlarged") && $("body").hasClass("fixed-left-void")){
 	    	$("body").removeClass("fixed-left-void").addClass("fixed-left");
 	    }
-
 	}
 	toggle_slimscroll(".slimscrollleft");
 }

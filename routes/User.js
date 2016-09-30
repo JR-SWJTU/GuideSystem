@@ -6,7 +6,7 @@ var UserEntity = require('../models/User').UserEntity;
 
 // 测试
 router.get('/', function(req, res) {
-	res.render('layout', { title: '主页' });
+	res.render('layout', { title: '测试' });
 });
 
 //主页
@@ -24,13 +24,13 @@ router.get('/login', function(req, res) {
 });
 router.post('/login', function(req, res, next) {
 	
-	var Email = req.body.Email;
-	var Password = req.body.Password;
+	var email = req.body.email;
+	var password = req.body.password;
 
-	console.log(Email);
-	console.log(Password);
+	console.log(email);
+	console.log(password);
 
-	UserEntity.findOne({ Email : Email}, function(err,user){
+	UserEntity.findOne({ email : email}, function(err,user){
 		if(err){
 			req.session()
 			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
@@ -55,8 +55,8 @@ router.get('/register', function(req, res) {
 });
 router.post('/register',function(req,res){
 
-	var Email = req.body.Email;
-	if ( !Email || Email.length < 10) {
+	var email = req.body.email;
+	if ( !email || email.length < 10) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'学号不能为空');
 		return;
 	};
@@ -66,24 +66,24 @@ router.post('/register',function(req,res){
 		return;
 	}
 
-	var Password = req.body.Password;
-	if ( !Password || Password.length < 6) {
+	var password = req.body.password;
+	if ( !password || password.length < 6) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'密码长度不能少于6位');
 		return;
 	};
 
 	var password_confirm = req.body.password_confirm;
-	if (Password != password_confirm) {
+	if (password != password_confirm) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'两次输入的密码不一致');
 		console.log('两次输入的密码不一致');
 		return;
 	};
 
-	console.log(Email);
-	console.log(Password);
+	console.log(email);
+	console.log(password);
 	console.log(password_confirm);
 
-	UserEntity.findOne({ Email : Email}, function(err,user){
+	UserEntity.findOne({ email : email}, function(err,user){
 		if(err){
 			res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
 			return;
@@ -96,8 +96,8 @@ router.post('/register',function(req,res){
 
 		var registerEntity = new UserEntity({
 			Name : name,
-			Email : Email,
-			Password : Password
+			email : email,
+			password : password
 		});
 		registerEntity.save(function(err,row){
 			if (err) {
