@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ErrorCode = require('../ErrorCode');
 
-var UserEntity = require('../models/User').UserEntity;
+var User = require('../models/User').User;
 
 // 测试
 router.get('/', function(req, res) {
@@ -30,7 +30,12 @@ router.post('/login', function(req, res, next) {
 	console.log(email);
 	console.log(password);
 
-	UserEntity.findOne({ email : email}, function(err,user){
+	var user = new User({
+		Email : email,
+		Password : password
+	});
+
+	User.findOne({ 'Email' : email}, function(err,result){
 		if(err){
 			req.session()
 			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
@@ -38,15 +43,16 @@ router.post('/login', function(req, res, next) {
 			return;
 		}
 
-		if (user) {
-			res.redirect('mainPage');
-			res.success();
-		};
+		if (result) {
+			if (password == result.password) {};
+			res.redirect('/mainPage');
+		}
+		else{
+			console.log('该账号不存在，请重新输入。');
+		}
 
 	});
 });
-
-
 
 
 // 注册功能的路由
@@ -56,56 +62,59 @@ router.get('/register', function(req, res) {
 router.post('/register',function(req,res){
 
 	var email = req.body.email;
+	console.log(email);
 	if ( !email || email.length < 10) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'学号不能为空');
+		console.log('邮箱不能为空');
 		return;
 	};
 
-	var name = req.body.Name;
+	var name = req.body.name;
 	if( !name ){
+		console.log('姓名不能为空');
 		return;
 	}
 
 	var password = req.body.password;
-	if ( !password || password.length < 6) {
+	console.log(password);
+	if ( !password || password.length < 0) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'密码长度不能少于6位');
+		console.log('密码长度不能少于六位');
 		return;
 	};
 
 	var password_confirm = req.body.password_confirm;
+	console.log(password_confirm);
 	if (password != password_confirm) {
 		// res.error(ErrorCode.ILLEGAL_ARGUMENT_ERROR_CODE,'两次输入的密码不一致');
 		console.log('两次输入的密码不一致');
 		return;
 	};
 
-	console.log(email);
-	console.log(password);
-	console.log(password_confirm);
-
-	UserEntity.findOne({ email : email}, function(err,user){
+	var user = new User({
+		Email : email,
+		Name : name,
+		Password : password
+	});
+	User.find({ 'Email' : email}, function(err,result){
 		if(err){
-			res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+			//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+			console.log('服务器异常');
 			return;
 		}
-
-		if (user) {
-			res.error(ErrorCode.BUSINESS_ERROR_CODE,'学号已经注册');
+		if (result) {
+			//res.error(ErrorCode.BUSINESS_ERROR_CODE,'邮箱已经注册');
+			console.log('该邮箱已经注册！');
 			return;
 		};
-
-		var registerEntity = new UserEntity({
-			Name : name,
-			email : email,
-			password : password
-		});
-		registerEntity.save(function(err,row){
-			if (err) {
-				res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
-				return;
-			};
-			res.redirect('/mainPage',{title : '主页'});
-		});
+		user.save(function(err,res){
+		if (err) {
+			//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+			console.log('服务器异常');
+			return;
+		};
+	});
+	res.redirect('/mainPage');
 	});
 });
 

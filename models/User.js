@@ -11,9 +11,9 @@ var UserSchema = new mongoose.Schema({
 });
 
 
-// 将该Schema发布为Entity
-var UserEntity = mongoose.model('UserEntity',UserSchema,'user');//指定在数据库中的collection名称为user
-exports.UserEntity  = UserEntity;//导出UserEntity实体
+// 将该Schema发布为模型
+var User = mongoose.model('User',UserSchema,'user');//指定在数据库中的collection名称为user
+exports.User  = User;//导出User模型（User类）
 
 // var userEntity = new UserModel({
 // 	Email : '2014',
