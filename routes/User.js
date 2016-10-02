@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ErrorCode = require('../ErrorCode');
 
-var User = require('../models/User').User;
+var User = require('../models/user').User;
 
 // 测试
 router.get('/', function(req, res) {
@@ -31,11 +31,11 @@ router.post('/login', function(req, res, next) {
 	console.log(password);
 
 	var user = new User({
-		Email : email,
-		Password : password
+		email : email,
+		password : password
 	});
 
-	User.findOne({ 'Email' : email}, function(err,result){
+	User.findOne({ 'email' : email}, function(err,result){
 		if(err){
 			req.session()
 			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
@@ -91,12 +91,7 @@ router.post('/register',function(req,res){
 		return;
 	};
 
-	var user = new User({
-		Email : email,
-		Name : name,
-		Password : password
-	});
-	User.find({ 'Email' : email}, function(err,result){
+	User.find({ email : email}, function(err,result){
 		if(err){
 			//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
 			console.log('服务器异常');
@@ -107,6 +102,13 @@ router.post('/register',function(req,res){
 			console.log('该邮箱已经注册！');
 			return;
 		};
+
+		var user = new User({
+			email : email,
+			Name : name,
+			password : password
+		});
+
 		user.save(function(err,res){
 		if (err) {
 			//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
