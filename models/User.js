@@ -5,7 +5,7 @@ var mongoose = mongodb.mongoose;
 // 定义一个Schema
 var UserSchema = new mongoose.Schema({
 
-	email : { type: String, index: true },
+	email : { type: String, index: true,unique:true },
 	name : String,
 	password : String
 });

@@ -91,13 +91,14 @@ router.post('/register',function(req,res){
 		return;
 	};
 
-	User.find({ email : email}, function(err,result){
+	User.findOne({ email : email}, function(err,user){
 		if(err){
 			//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
 			console.log('服务器异常');
 			return;
 		}
-		if (result) {
+		console.log('use:' + user);
+		if (user) {
 			//res.error(ErrorCode.BUSINESS_ERROR_CODE,'邮箱已经注册');
 			console.log('该邮箱已经注册！');
 			return;
@@ -105,18 +106,18 @@ router.post('/register',function(req,res){
 
 		var user = new User({
 			email : email,
-			Name : name,
+			name : name,
 			password : password
 		});
 
 		user.save(function(err,res){
-		if (err) {
-			//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
-			console.log('服务器异常');
-			return;
-		};
-	});
-	res.redirect('/mainPage');
+			if (err) {
+				//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+				console.log('服务器异常');
+				return;
+			};
+		});
+		res.redirect('/mainPage');
 	});
 });
 

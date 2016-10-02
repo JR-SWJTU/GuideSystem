@@ -3,15 +3,16 @@ var mongoose = mongodb.mongoose;
 
 // 定义一个Schema
 var NoticeSchema = new mongoose.Schema({
-
-	title
-	Email : { type: String, index: true },
-	Name : String,
-	Password : String,
-	Date : datetime
+ 	title:String,
+	centent:String,
+	author:String,
+	postDate : {
+		type:Date,
+		default:Date.now()
+	}
 });
 
 
 // 将该Schema发布为模型
-var User = mongoose.model('User',UserSchema,'user');//指定在数据库中的collection名称为user
-exports.User  = User;//导出User模型（User类）
+var Notice = mongoose.model('Notice',NoticeSchema,'Notice');//指定在数据库中的collection名称为Notice
+exports.Notice  = Notice;//导出Notice模型（Notice类）
