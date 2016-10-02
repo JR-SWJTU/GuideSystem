@@ -9,7 +9,7 @@ var session = require('express-session');
 var DBConfig = require('./config/DBConfig');
 var ErrorCode = require('./ErrorCode');
 
-var userRoutes = require('./routes/user');  //引入用户路由中间件
+var userRoutes = require('./routes/User');  //引入用户路由中间件
 
 var app = express();
 

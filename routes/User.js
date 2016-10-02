@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ErrorCode = require('../ErrorCode');
 
-var User = require('../models/user').User;
+var User = require('../models/User').User;
 
 // 测试
 router.get('/', function(req, res) {
