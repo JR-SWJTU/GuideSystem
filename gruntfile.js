@@ -2,14 +2,14 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     watch: {
-      jade: {
+      ejs: {
         files: ['views/**'],
         options: {
           livereload: true
         }
       },
       js: {
-        files: ['assets/js/**', 'models/**/*.js'],
+        files: ['assets/js/**', 'models/*.js','routes/*.js'],
         //tasks: ['jshint'],
         options: {
           livereload: true
@@ -31,13 +31,12 @@ module.exports = function(grunt) {
       }
     },
 
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        ignores: ['public/libs/**/*.js']
-      },
-      all: ['assets/js/*.js', 'test/**/*.js', 'app/**/*.js']
-    },
+    // jshint: {
+    //   options: {
+    //     jshintrc: '.jshintrc',
+    //   },
+    //   all: ['assets/js/*.js', 'routes/*.js']
+    // },
 
     less: {
       development: {
@@ -85,11 +84,12 @@ module.exports = function(grunt) {
       options: {
         reporter: 'spec'
       },
-      src: ['test/**/*.js']
+      src: ['routes/*.js']
     },
 
     concurrent: {
-      tasks: ['nodemon', 'watch', 'less', 'uglify', 'jshint'],
+      // tasks: ['nodemon', 'watch', 'less', 'uglify', 'jshint'],
+      tasks: ['nodemon', 'watch', 'less', 'uglify'],
       options: {
         logConcurrentOutput: true
       }

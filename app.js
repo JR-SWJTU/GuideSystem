@@ -4,9 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var session = require('express-session');
 var DBConfig = require('./config/DBConfig');
+var mongoStore = require('connect-mongo')(session);
 var ErrorCode = require('./ErrorCode');
 
 var userRoutes = require('./routes/User');  //引入用户路由中间件
@@ -25,8 +25,15 @@ app.set('view options', {
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'assets')));
+app.use(cookieParser());
+app.use(session({
+  secret:'guidesystem',
+  store:new mongoStore({
+    url:'mongodb://localhost:27017/guidesystem',
+    collection:'session'
+  })
+}))
 
 
 // 路由规划

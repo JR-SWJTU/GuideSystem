@@ -20,6 +20,7 @@ router.get('/map', function(req, res) {
 
 // 登陆功能的路由
 router.get('/login', function(req, res) {
+	console.log(req.session.user);
 	res.render('login', { title: '登录' });
 });
 router.post('/login', function(req, res, next) {
@@ -44,8 +45,11 @@ router.post('/login', function(req, res, next) {
 		}
 
 		if (result) {
-			if (password == result.password) {};
-			res.redirect('/mainPage');
+			if (password == result.password) {
+				console.log(result.name);
+				res.render('mainPage',{ 'userName': result.name});
+				// res.redirect('/mainPage');
+			};			
 		}
 		else{
 			console.log('该账号不存在，请重新输入。');
