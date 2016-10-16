@@ -10,6 +10,7 @@ var mongoStore = require('connect-mongo')(session);
 var ErrorCode = require('./ErrorCode');
 
 var userRoutes = require('./routes/User');  //引入用户路由中间件
+var landmarkRoutes = require('./routes/Landmark');  //引入用户路由中间件
 
 var app = express();
 
@@ -38,6 +39,8 @@ app.use(session({
 
 // 路由规划
 app.use('/', userRoutes);//挂载user模块路由中间件
+app.use('/', landmarkRoutes);
+
 // app.use('/users', users);
 
 // catch 404 and forward to error handler

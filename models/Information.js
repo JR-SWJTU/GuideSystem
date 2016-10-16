@@ -7,7 +7,7 @@ var InformationSchema = new mongoose.Schema({
 	pub_name : type: String,
 	info_content : { type: String, unique:true },
 	date : { type: String, unique:true },
-	info_category : type : int
+	info_category : type : NumberInt
 
 });
 
