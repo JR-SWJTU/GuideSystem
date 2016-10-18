@@ -32,7 +32,7 @@ app.use(session({
   secret:'guidesystem',
   store:new mongoStore({
     url:'mongodb://localhost:27017/guidesystem',
-    collection:'set'
+    collection:'session'
   })
 }))
 
