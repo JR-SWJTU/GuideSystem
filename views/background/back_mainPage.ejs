@@ -600,8 +600,7 @@
                                       <input id="pictu" type="file" class="btn btn-default" title="Select file">
                                   </div>
                                   <p>若无图片，则无须选择。</p>
-                    </div>
-
+                        </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                       <button type="button" class="btn btn-primary" id="scLM">确认创建</button>
@@ -613,7 +612,27 @@
 
 
 
+                <!-- sample modal content -->
+              <div id="suc_creNLM" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">成功创建新地标</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-success">
+                               您已成功创建新坐标！
+                        </div>
+                    </div>
 
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+                    </div>
+
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
 
 
 
@@ -750,8 +769,13 @@
                         cate : cate1[0],
                     },
                  success: function(data){
-                      alert(data);
-                      }   
+                            if(data == "yes"){
+                                $('#creNLM').modal('hide');
+                                $('#suc_creNLM').modal('show');
+                            }else{
+                                //未成功创建地标
+                            }
+                        }   
              });
             }
         });
