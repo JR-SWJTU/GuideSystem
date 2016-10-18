@@ -21,20 +21,13 @@ router.post('/background/back_mainPage',function(req,res){
 			category : req.body.cate,
 			aud_pass : "1"
 		});
-
-		if(!(req.body.describe==null||req.body.describe==undefined||req.body.describe==""))
-			landmark.describe = req.body.describe;
-		if(!(req.body.content==null||req.body.content==undefined||req.body.content==""))
-			landmark.content = req.body.content;
+		if(!(req.body.des==null||req.body.des==undefined||req.body.des=="")){
+			landmark.describe = req.body.des;
+		}
+		if(!(req.body.pictu==null||req.body.pictu==undefined||req.body.pictu==""))
+			landmark.content = req.body.pictu;
 		
-		console.log(landmark.longitude);
-		console.log(landmark.latitude);
-		console.log(landmark.name);
-		console.log(landmark.category);
-		console.log(landmark.describe);
-		console.log(landmark.comment);
-		console.log(landmark.content);
-		console.log(landmark.aud_pass);
+		
 
 		var temp_flag = 1;
 		Landmark.findOne({name: landmark.name }, function(err,res){
