@@ -5,39 +5,39 @@ var ErrorCode = require('../ErrorCode');
 var Landmark = require('../models/Landmark').Landmark;
 
 //新建地标
-router.get('/background/back_mainPage', function(req, res) {
+router.get('/back_mainPage', function(req, res) {
 	res.render('background/back_mainPage', { title: '新建' });
 });
 
 router.post('/background/back_mainPage',function(req,res){
-console.log("11111111111111111111111111111111111");
-
-	var landmark = new Landmark({
-		longitude : 57.325,
-		latitude : 150.268,
-		name : "asd",
-		category : "1,2,3",
-		describe : "qwe",
-		comment : "qwe",
-		content : "qwe",
-		aud_pass : "1"
-	});
-
-	console.log("11111111111111111111111111111111111");
 
 
-	Landmark.findOne({ }, function(err,user){
-		console.log("2222222222222222222222222");
-		landmark.save(function(err,res){
-			console.log("33333333333333333333333333333");
-			if (err) {
-				//res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
-				console.log('服务器异常');
-				return;
-			};
+	if(req.body.type == "1"){
+		console.log(req.body.cate);
+		console.log(req.body.des);
+		console.log(req.body.poctu);
+		var landmark = new Landmark({
+			longitude : req.body.lon,
+			latitude : req.body.lan,
+			name : req.body.name,
+			category : req.body.cate,
+			describe : req.body.des,
+			content : req.body.poctu,
+			aud_pass : "1"
 		});
-		res.redirect('/back_mainPage');
-	});
+		console.log("111");
+		Landmark.findOne({ }, function(err,landmark){
+			landmark.save(function(err,res){
+				console.log("222");
+				if (err) {
+					console.log('服务器异常');
+					return;
+				};
+			});
+		});
+		console.log("333");
+		 res.send("yes");
+	}
 });
 
 module.exports = router;

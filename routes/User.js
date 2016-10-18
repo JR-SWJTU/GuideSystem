@@ -14,9 +14,6 @@ router.get('/mainPage', function(req, res) {
 	res.render('mainPage', { title: '主页' });
 });
 
-router.get('/back_mainPage', function(req, res) {
-	res.render('background/back_mainPage', { title: '主页' });
-});
 
 router.get('/map', function(req, res) {
 	res.render('map', {  title: '主页'  });
