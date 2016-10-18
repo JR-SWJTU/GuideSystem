@@ -4,14 +4,14 @@ var mongoose = mongodb.mongoose;
 // 定义一个Schema
 var LandmarkSchema = new mongoose.Schema({
 
-	longitude : { type: Number, default: 0.0},
-	latitude : { type: Number, default: 0.0},
-	name : { type: String, unique:true, default: "0"},
-	category : { type: String, default: "0"},
+	longitude : { type: Number, default: 0.0, required:true},
+	latitude : { type: Number, default: 0.0, required:true},
+	name : { type: String, unique:true, default: "0", required:true},
+	category : { type: String, default: "0", required:true},
 	describe : { type: String, default: "无."},
 	comment : { type: String, default: "无."},
 	content : { type: String, default: "无."},
-	aud_pass : { type: String, default: "0"}
+	aud_pass : { type: String, default: "0", required:true}
 });
 
 
