@@ -627,7 +627,7 @@
                     </div>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="succ_cre">确认</button>
                     </div>
 
                   </div><!-- /.modal-content -->
@@ -750,7 +750,6 @@
             var des = $("#describe").val();
             var pictu = $("#pictu").val();
             var cate1 = $("#cate1").html().split(" ");
-            alert(cate1);
             if(name == null || name == ""){
                 $("#notName").show();
             }else{
@@ -778,6 +777,10 @@
                         }   
              });
             }
+        });
+
+        $("#succ_cre").click(function (){
+            window.location.href="/back_mainPage"; 
         });
 
         // $(".choiceC1").click(function(){
