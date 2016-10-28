@@ -11,13 +11,9 @@ map.addControl(new BMap.OverviewMapControl({isOpen:false,anchor:BMAP_ANCHOR_BOTT
 //添加比例尺控件
 map.addControl(new BMap.ScaleControl());
 
-
-var mycars= {
-
-};
-
 var  mapStyle = {features:false};
 map.setMapStyle(mapStyle);
+
 
 var crelan = 0;
 var crelon = 0;   

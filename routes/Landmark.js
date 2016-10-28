@@ -6,7 +6,24 @@ var Landmark = require('../models/Landmark').Landmark;
 
 //新建地标
 router.get('/back_mainPage', function(req, res) {
-	res.render('background/back_mainPage', { title: '新建' });
+	Landmark.find({},function(err,result){
+	 	if(err){
+			req.session()
+			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+			console.log("find  " + err);
+			return;
+		}
+		if (result) {
+			var str="";
+			console.log(result);
+			for(var i=0;i<result.length;i++)
+			{
+				str=str+result[i].longitude+'^'+result[i].name+'^'+result[i].latitude+'^'+result[i].describe+'^'+result[i].category+'*';
+			}
+			console.log(str);
+			res.render('background/back_mainpage',{'landMark':str,'landLength':result.length});
+		};			
+	});
 });
 
 router.post('/background/back_mainPage',function(req,res){

@@ -3,10 +3,11 @@ var router = express.Router();
 var ErrorCode = require('../ErrorCode');
 
 var User = require('../models/User').User;
+var Admin = require('../models/Admin').Admin;
 
 // 测试
 router.get('/', function(req, res) {
-	res.render('layout', { title: '测试' });
+	res.render('foreground/announcement', { title: '测试' });
 });
 
 //主页
@@ -28,35 +29,69 @@ router.post('/login', function(req, res, next) {
 	
 	var email = req.body.email;
 	var password = req.body.password;
+	var userType = req.body.y=userType;
 
 	console.log(email);
 	console.log(password);
 
-	var user = new User({
-		email : email,
-		password : password
-	});
+	if(userType == 0){
+		var user = new User({
+			email : email,
+			password : password
+		});
 
-	User.findOne({ 'email' : email}, function(err,result){
-		if(err){
-			req.session()
-			// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
-			console.log('服务器异常');
-			return;
-		}
+		User.findOne({ 'email' : email}, function(err,result){
+			if(err){
+				req.session()
+				// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+				console.log('服务器异常');
+				return;
+			}
 
-		if (result) {
-			if (password == result.password) {
-				console.log(result.name);
-				res.render('mainPage',{ 'userName': result.name});
-				// res.redirect('/mainPage');
-			};			
-		}
-		else{
-			console.log('该账号不存在，请重新输入。');
-		}
+			if (result) {
+				if (password == result.password) {
+					console.log(result.name);
+					res.send("1");
+					// res.render('mainPage',{ 'userName': result.name});
+					// res.redirect('/mainPage');
+				};			
+			}
+			else{
+				console.log('该账号不存在，请重新输入。');
+			}
 
-	});
+		});
+	}
+
+	if(userType == 1){
+		var admin = new Admin({
+			email : email,
+			password : password
+		});
+
+		Admin.findOne({ 'email' : email}, function(err,result){
+			if(err){
+				req.session()
+				// res.error(ErrorCode.SERVER_EXCEPTION_ERROR_CODE,'服务器异常');
+				console.log('服务器异常');
+				return;
+			}
+
+			if (result) {
+				if (password == result.password) {
+					console.log(result.name);
+					res.send("1");
+					// res.render('mainPage',{ 'adminName': result.name});
+					// res.redirect('/mainPage');
+				};			
+			}
+			else{
+				console.log('该账号不存在，请重新输入。');
+			}
+
+		});
+	}
+	
 });
 
 

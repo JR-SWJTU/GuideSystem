@@ -41,6 +41,9 @@
 .border-red-1 {
   border-color: #eb5055 !important;
 }
+.baidu-maps label {
+  max-width: none;
+}
 .btn-red-1 {
   background-color: #eb5055;
   color: #fff;

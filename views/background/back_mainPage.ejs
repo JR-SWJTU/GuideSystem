@@ -58,6 +58,8 @@
 
         <!--地图文件-->
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZmWD1OyGGhLGNWQXWALFTRPT4EPLsbs1"></script>
+         <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 
 
 
@@ -539,7 +541,7 @@
 <!--                 </form>
  -->
 
-               <div style="width:100%;height:500px;" id="allmap" ></div>
+               <div class="baidu-maps" style="width:100%;height:500px;" id="allmap" ></div>
 
 
 
@@ -716,7 +718,51 @@
     <script src="/js/mapAPIcontrol.js"></script>
 	<script type="text/javascript">
 		
-       
+        var json='<%=landMark%>';
+        console.log(json);
+        var str=json.split("*");
+        console.log(str[0]);
+        console.log(str[1]);
+        console.log(str[2]);
+        console.log(str[3]);
+        for(var i=0;i<parseInt('<%=landLength%>');i++){
+            var ss=str[i].split("^");
+            var marker = new BMap.Marker(new BMap.Point(parseFloat(ss[0]),parseFloat(ss[2])));  // 创建标注
+            var content ='<div style="margin:0;line-height:20px;padding:2px;">' +
+                    '<style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>'+
+                    '坐标:('+ss[0]+','+ss[2]+')<br/>'+'内容:'+ss[3]+'<br/>'+'分类:'+ss[4]+'</div>'; 
+            map.addOverlay(marker); 
+            var label = new BMap.Label(ss[1],{offset:new BMap.Size(20,-10)});
+            marker.setLabel(label);
+            label.setStyle({
+             color : "black",
+             fontSize : "12px",
+             height : "20px",
+             backgroundColor :"0.05",
+             border:"0",
+             textAlign:"center",
+             lineHeight : "20px",
+             fontFamily:"微软雅黑"
+            });
+            addClickHandler(content,marker,ss[1]);
+        }
+    function addClickHandler(content,marker,tit){
+        marker.addEventListener("click", function(e){
+        var p = e.target;
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+        var searchInfoWindow = null;
+            searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+                title  : tit,      //标题
+                width  : 290,             //宽度
+                height : 105,              //高度
+                panel  : "panel",         //检索结果面板
+                enableAutoPan : true,     //自动平移
+                searchTypes :[
+            ]
+            });
+        searchInfoWindow.open(point);
+    });
+}
 
         $("#sure_creLM").hide();
         $("#exit_creLM").hide();

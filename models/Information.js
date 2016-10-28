@@ -4,10 +4,11 @@ var mongoose = mongodb.mongoose;
 // 定义一个Schema
 var InformationSchema = new mongoose.Schema({
 
-	pub_name : type: String,
+	pub_name : String,	//发布者姓名
+	title : String,		//公告题目
 	info_content : { type: String, unique:true },
 	date : { type: String, unique:true },
-	info_category : type : NumberInt
+	// info_category : type : NumberInt   //0为公告，1为评论
 
 });
 
