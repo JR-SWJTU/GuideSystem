@@ -27,6 +27,8 @@
         <link href="/libs/prettify/github.css" rel="stylesheet" />
         
                 <!-- Extra CSS Libraries Start -->
+                 <link href="/libs/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+                <link href="/libs/summernote/summernote.css" rel="stylesheet" type="text/css" />
                 <link href="/libs/rickshaw/rickshaw.min.css" rel="stylesheet" type="text/css" />
                 <link href="/libs/morrischart/morris.css" rel="stylesheet" type="text/css" />
                 <link href="/libs/jquery-jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
@@ -544,12 +546,6 @@
                <div class="baidu-maps" style="width:100%;height:500px;" id="allmap" ></div>
 
 
-
-
-
-
-
-
                 <!-- sample modal content -->
               <div id="creNLM" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -567,32 +563,65 @@
                                     <div class="alert alert-danger nomargin" id="notName">
                                 地标名称未填写！</div>
                                    </div>
-                                  <div class="input-group">
-                                      <div class="input-group-btn">
-                                      <label class="control-label">类别：</label><br/>
-                                        <div style="width:200px;float:left;">
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="cate1">学校设施 <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                          <li><a href="javascript:;" class="choiceC1" title="学校设施">学校设施</a></li>
-                                          <li><a href="javascript:;" class="choiceC1" title="生活设施">生活设施</a></li>
-                                        </ul>
-                                        </div>
+                                 
+                                 <label class="col-2 control-label" style="width:50px;float:left;">类别：</label>
+                                <div class="col-3 cateA" style="width:125px;float:left;" id="ca0">
+                                    <select class="form-control selectpicker" id="getCaInfo0">
+                                      <option>学校设施</option>
+                                      <option>生活设施</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
 
-                                        <!--  <div style="width:200px;float:left;">
-                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="cate2">学校设施 <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                          <li><a href="javascript:;" class="choiceC2" title="学校设施">学校设施</a></li>
-                                          <li><a href="javascript:;" class="choiceC2" title="生活设施">生活设施</a></li>
-                                        </ul>
-                                        </div>
+                                <div style="float:left;width:50px;">&nbsp;</div>
+                                
+                                <div class="col-3 cateB" style="width:125px;float:left;" id="ca0_0">
+                                    <select class="form-control selectpicker" id="getCaInfo0_0">
+                                      <option>教学楼</option>
+                                      <option>实验室</option>
+                                      <option>办公楼</option>
+                                      <option>宿舍楼</option>
+                                      <option>体育设施</option>
+                                      <option>地标性建筑物</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
 
-                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="cate3">学校设施 <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                          <li><a href="javascript:;" class="choiceC1" title="学校设施">学校设施</a></li>
-                                          <li><a href="javascript:;" class="choiceC1" title="生活设施">生活设施</a></li>
-                                        </ul> -->
-                                      </div><!-- /btn-group -->
-                                    </div><br/>
+                                <div class="col-3 cateB" style="width:125px;float:left;" id="ca0_1">
+                                    <select class="form-control selectpicker" id="getCaInfo0_1">
+                                      <option>医</option>
+                                      <option>食</option>
+                                      <option>行</option>
+                                      <option>学</option>
+                                      <option>玩</option>
+                                      <option>修</option>
+                                      <option>买</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="float:left;width:50px;">&nbsp;</div>
+
+                                <div class="col-3 cateC" style="width:125px;float:left;" id="ca0_1_4">
+                                    <select class="form-control selectpicker" id="getCaInfo0_1_4">
+                                      <option>电影院</option>
+                                      <option>奶茶店</option>
+                                      <option>ktv</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-3 cateC" style="width:125px;float:left;" id="ca0_1_6">
+                                    <select class="form-control selectpicker" id="getCaInfo0_1_6">
+                                      <option>超市或小卖部</option>
+                                      <option>快递取货点</option>
+                                      <option>银行</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+
+                                <br/><br/><br/>
+
                                   <div class="form-group">
                                     <label>地标描述：</label>
                                     <textarea class="form-control" id="describe" style="height: 140px; resize: none;"></textarea>
@@ -699,7 +728,11 @@
     <script src="/libs/d3/d3.v3.js"></script>
     <script src="/libs/rickshaw/rickshaw.min.js"></script>
     <script src="/libs/raphael/raphael-min.js"></script>
-	<script src="/libs/morrischart/morris.min.js"></script>  
+    <script src="/libs/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="/libs/bootstrap-inputmask/inputmask.js"></script>
+    <script src="/libs/summernote/summernote.js"></script>
+    <script src="/js/pages/forms.js"></script>
+<!--    <script src="/libs/morrischart/morris.min.js"></script>   -->
     <script src="/libs/jquery-knob/jquery.knob.js"></script>
     <script src="/libs/jquery-jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="/libs/jquery-jvectormap/js/jquery-jvectormap-us-aea-en.js"></script>
@@ -711,7 +744,7 @@
     <script src="/js/apps/calculator.js"></script>
     <script src="/js/apps/todo.js"></script>
     <script src="/js/apps/notes.js"></script>
-    <script src="/js/pages/index.js"></script>  
+    <!-- <script src="/js/pages/index.js"></script>   -->
 
     
     <!-- 地图函数引用 -->
@@ -778,6 +811,9 @@
         });
 
         $("#sure_creLM").click(function(){
+            $(".cateB").hide();
+            $(".cateC").hide();
+            $("#ca0_0").show();
             $("#posi").html("经度：" + crelon + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "纬度：" + crelan);
             $("#notName").hide();
         });
@@ -790,12 +826,56 @@
         });
 
 
+         //分类设置
+        $(".cateA").mouseleave (function(){
+            //alert($("#getCaInfo0").val());
+            //alert($("getCaInfo1").children("option").html());
+            var opA = $("#getCaInfo0").val();
+            $(".cateB").hide("50");
+            $(".cateC").hide("50");
+            if(opA == "学校设施"){
+                $("#ca0_0").show("50");
+            }else if(opA == "生活设施"){
+                $("#ca0_1").show("50");
+            }
+        });
+        $(".cateB").mouseleave (function(){
+            //alert($("#getCaInfo0").val());
+            //alert($("getCaInfo1").children("option").html());
+            var opB = $("#getCaInfo0_1").val();
+            $(".cateC").hide("50");
+            if(opB == "玩"){
+                $("#ca0_1_4").show("50");
+            }else if(opB == "买"){
+                $("#ca0_1_6").show("50");
+            }
+        });
+
 
         $("#scLM").click(function(){
             var name = $("#name").val();
             var des = $("#describe").val();
             var pictu = $("#pictu").val();
-            var cate1 = $("#cate1").html().split(" ");
+            var cate1;
+
+            var opA = $("#getCaInfo0").val();
+            var opB;
+            if(opA == "学校设施"){
+                opB = $("#getCaInfo0_1").val();
+                cate1 = opA + "," + opB;
+            }else if(opA == "生活设施"){
+                opB = $("#getCaInfo0_1").val();
+                if(opB == "玩"){
+                    cate1 = opA + "," + opB + "," +  $("#getCaInfo0_1_4").val();
+                }else if(opB == "买"){
+                    cate1 = opA + "," + opB + "," +  $("#getCaInfo0_1_6").val();
+                }else{
+                    cate1 = opA + "," + opB;
+                }
+            }else{
+                cate1 = "其它";
+            }
+
             if(name == null || name == ""){
                 $("#notName").show();
             }else{
@@ -811,7 +891,7 @@
                         name : name,
                         des : des,
                         pictu : pictu,
-                        cate : cate1[0],
+                        cate : cate1,
                     },
                  success: function(data){
                             if(data == "yes"){
