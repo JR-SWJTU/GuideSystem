@@ -14,14 +14,15 @@ router.get('/back_mainPage', function(req, res) {
 			return;
 		}
 		if (result) {
-			var str="";
-			console.log(result);
-			for(var i=0;i<result.length;i++)
-			{
-				str=str+result[i].longitude+'^'+result[i].name+'^'+result[i].latitude+'^'+result[i].describe+'^'+result[i].category+'*';
-			}
-			console.log(str);
-			res.render('background/back_mainpage',{'landMark':str,'landLength':result.length});
+			// var str="";
+			// console.log(result);
+			// for(var i=0;i<result.length;i++)
+			// {
+			// 	str=str+result[i].longitude+'^'+result[i].name+'^'+result[i].latitude+'^'+result[i].describe+'^'+result[i].category+'*';
+			// }
+			// console.log(str);
+			//res.send(result);
+			res.render('background/back_mainpage');
 		};			
 	});
 });
@@ -63,6 +64,37 @@ router.post('/background/back_mainPage',function(req,res){
 			res.send("yes");
 		 
 		
+	}else if(req.body.type == "2"){
+		var find_name = req.body.name;
+		Landmark.find({name:{$regex:find_name}},function(err,result){
+		 	if(err){
+				console.log("findByName  " + err);
+				return;
+			}
+			res.send(result);
+		});
+	}else if(req.body.type=="3"){
+		Landmark.find({},function(err,result){
+		 	if(err){
+				req.session()
+				console.log("find  " + err);
+				return;
+			}
+			if (result) {
+				res.send(result);			
+			}		
+		});
+	}else if(req.body.type=="4"){
+		var find_cate = req.body.cate;
+		Landmark.find({category:find_cate},function(err,result){
+		 	if(err){
+				console.log("findByName  " + err);
+				return;
+			}
+			res.send(result);
+		});
+	}else{
+
 	}
 });
 
