@@ -100,19 +100,21 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <form class="form-signin" role="form">
+                <form class="form-signin" role="form" method="post" action="/login">
                 <h2 class="form-signin-heading">LOGIN</h2>
                 <div class="form-group">
-                    <input type="email" class="form-control input-lg" id="email" placeholder="邮 箱 地 址 | Email Address" required autofocus>
+                    <input type="email" class="form-control input-lg" id="email" name="email" placeholder="邮 箱 地 址 | Email Address" required autofocus>
+                    <div class="alert alert-warning" id="EmailWarning" hidden>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control input-lg" id="password" placeholder="密 码 | Password" required>
+                    <input type="password" class="form-control input-lg" id="password" name="password" placeholder="密 码 | Password" required>
                 </div>
 
 
-                <input id="student"  type="checkbox" checked="true"><label style="color:#fff; font-weight:bold">&nbsp用户登录</label>
+                <input id="student" name="userType1"  type="checkbox" checked="true" value="0"><label style="color:#fff; font-weight:bold">&nbsp用户登录</label>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <input id="admin"  type="checkbox"><label style="color:#fff; font-weight:bold">&nbsp管理员登录</label>
+                <input id="admin" name="userType1"  type="checkbox" value="1"><label style="color:#fff; font-weight:bold">&nbsp管理员登录</label>
 
 
                 <button id="loginButton" class="btn btn-lg btn-primary btn-block" type="button">登 录</button><br>
@@ -153,7 +155,15 @@
                 $("#student").attr('checked',false);
         });
 
-        /*登陆ajax提交*/
+        // $("#loginButton").click(function(){
+        //     var userType;
+        //     if($("#student").attr('checked') )
+        //         userType = 0;
+        //     else
+        //         userType = 1;
+        //     $()
+        // });
+        // /*登陆ajax提交*/
         $("#loginButton").click(function(){
             var email = $("#email").val();
             var password = $("#password").val();
@@ -171,17 +181,21 @@
                     password: password,
                     userType: userType,
                 },
-             success: function(data){
-                        if(data == "1"){
-                            if(userType == 0)
-                                res.render('mainPage',{ 'userName': name});
-                            else
-                                res.render('mainPage',{ 'userName': name});
-                        }else{
-                           
-                        }
-                    }   
-             });
+                 success: function(data){
+                            var info = eval(data);
+                            if(info.res == "1"){
+                                if(info.userType == 0){
+                                    window.location.href = '/mainPage?userName=' + info.userName ;
+                                    // alert(window.location.href);
+                                }
+                                else
+                                    window.location.href = '/back_mainPage?userName=' + info.userName;
+                            }else{
+                                $("#EmailWarning").toggle();
+                                $("#EmailWarning").html("邮箱或者密码错误");
+                            }
+                        }   
+                 });
         });
 
     </script> 
