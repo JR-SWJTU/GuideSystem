@@ -34,5 +34,20 @@ function creNewLM(crelan1, crelon1){
 		$("#sure_creLM").attr("disabled","true"); 
 	}
 }
-
+function editNewLM(crelan1, crelon1){
+	if(crelan1 == 0.0){
+	 	map.addEventListener("click",function(e){
+			crelan = e.point.lat;
+			crelon = e.point.lng;
+			if(crelan != 0.0)
+				map.clearOverlays();
+			cremarker = new BMap.Marker(new BMap.Point(crelon,crelan));// 创建标注
+			map.addOverlay(cremarker);             // 将标注添加到地图中
+			cremarker.enableDragging();           // 不可拖拽
+			$("#sure_edit").attr("disabled",false); 
+		});
+	}else{
+		$("#sure_edit").attr("disabled","true"); 
+	}
+}
 
