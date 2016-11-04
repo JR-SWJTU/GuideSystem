@@ -7,7 +7,7 @@ map.setCurrentCity("西南交大图书馆");          // 设置地图显示的�
 map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 map.addControl(new BMap.OverviewMapControl({isOpen:false,anchor:BMAP_ANCHOR_BOTTOM_RIGHT}));
 //添加缩放平移控件
-	map.addControl(new BMap.NavigationControl());
+map.addControl(new BMap.NavigationControl());
 //添加比例尺控件
 map.addControl(new BMap.ScaleControl());
 
@@ -50,4 +50,5 @@ function editNewLM(crelan1, crelon1){
 		$("#sure_edit").attr("disabled","true"); 
 	}
 }
+
 

@@ -12,7 +12,8 @@ router.get('/', function(req, res) {
 
 //主页
 router.get('/mainPage', function(req, res) {
-	res.render('mainPage', { title: '主页' });
+	console.log("FindPage");
+	res.render('foreground/mainPage', { title: '主页' ,userName:req.query.userName});
 });
 
 
@@ -29,10 +30,11 @@ router.post('/login', function(req, res, next) {
 	
 	var email = req.body.email;
 	var password = req.body.password;
-	var userType = req.body.y=userType;
+	var userType = req.body.userType;
 
 	console.log(email);
 	console.log(password);
+	console.log(req.body.userType);
 
 	if(userType == 0){
 		var user = new User({
@@ -51,7 +53,9 @@ router.post('/login', function(req, res, next) {
 			if (result) {
 				if (password == result.password) {
 					console.log(result.name);
-					res.send("1");
+					console.log("用户登录");
+					var data = eval("(  { res: '1', userType : userType, userName: result.name} )");
+					res.send(data);
 					// res.render('mainPage',{ 'userName': result.name});
 					// res.redirect('/mainPage');
 				};			
@@ -80,6 +84,7 @@ router.post('/login', function(req, res, next) {
 			if (result) {
 				if (password == result.password) {
 					console.log(result.name);
+					console.log("用户登录");
 					res.send("1");
 					// res.render('mainPage',{ 'adminName': result.name});
 					// res.redirect('/mainPage');

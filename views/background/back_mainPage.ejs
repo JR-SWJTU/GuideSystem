@@ -293,13 +293,13 @@
                     <li class='has_sub'>
                         <a href='/announcement'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                     </li>
-                    <li class='has_sub'>
-                        <a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>失物招领</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                        <ul>
-                            <li><a href='google-maps.html'><span>Google Maps</span></a></li>
-                            <li><a href='vector-maps.html'><span>Vector Maps</span></a></li>
-                        </ul>
-                    </li>
+<!--                     <li class='has_sub'>
+    <a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>失物招领</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
+    <ul>
+        <li><a href='google-maps.html'><span>Google Maps</span></a></li>
+        <li><a href='vector-maps.html'><span>Vector Maps</span></a></li>
+    </ul>
+</li> -->
                     <li class='has_sub'>
                         <a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>常用网站</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
                         <ul>
@@ -532,12 +532,14 @@
             <!-- Start Content here -->
             <!-- ============================================================== -->
             <div class="content">
-                <!-- <form class="form-signin" role="form" action="/background/back_mainPage" method="post"> -->
-                    <button style="position:absolute;margin-top:200px;margin-right:5px;
-                        z-index:999;" class="btn btn-blue-2" id="creLM">新建地标</button>
-                    <button style="position:absolute;margin-top:250px;margin-right:5px;
-                        z-index:999;"class="btn btn-blue-2" id="sure_creLM" display="true"
+
+                <div style="position:fixed;top:300px;right:0px;z-index: 400;">
+                    <button class="btn btn-blue-2" id="creLM">新建地标</button>
+                </div>
+                <div style="position:fixed;top:350px;right:0px;z-index: 400;">
+                    <button class="btn btn-blue-2" id="sure_creLM" display="true"
                         data-toggle="modal" data-target="#creNLM">确认选点</button>
+<<<<<<< HEAD
                     <button style="position:absolute;margin-top:300px;margin-right:5px;
                         z-index:999;"class="btn btn-blue-2" id="exit_creLM">退出创建</button>
                     <button style="position:absolute;margin-top:250px;margin-right:5px;
@@ -550,6 +552,100 @@
                         z-index:999;" class="btn btn-blue-2" id="exit_cheLM">审核结束</button>
 <!--                 </form>
  -->
+=======
+                </div>
+                <div style="position:fixed;top:400px;right:0px;z-index: 400;">
+                    <button class="btn btn-blue-2" id="exit_creLM">退出创建</button>
+                </div>
+
+                <div style="position:fixed;top:300px;z-index: 400;">
+                    <span style="float:left;">
+                        <button style="width:110px;" class="btn btn-blue-2" id="findByName">按名称查询</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBN">&nbsp;</span>
+                    <span style="float:left;" class="fBN">
+                        <input type="text" class="form-control" id="fBN_Name" placeholder="请输入查询地标名称...">
+                    </span>
+                    <span style="float:left;width:10px;" class="fBN">&nbsp;</span>
+                    <span style="float:left;" class="fBN">
+                        <button  class="btn btn-success" id="sure_findByName">确认</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBN">&nbsp;</span>
+                    <span style="float:left;" class="fBN">
+                        <button  class="btn btn-warning" id="not_findByName">取消</button>
+                    </span>
+                </div>
+                <div style="position:fixed;top:350px;z-index: 400;">
+                    <span style="float:left;">
+                        <button style="width:110px;" class="btn btn-blue-2" id="findByCate">按分类查询</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC find_cateA col-3 find_ca0">
+                        <select class="form-control selectpicker" id="find_getCaInfo0">
+                          <option>学校设施</option>
+                          <option>生活设施</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_0">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC find_cateB col-3 find_ca0_0">
+                        <select class="form-control selectpicker" id="find_getCaInfo0_0">
+                          <option>教学楼</option>
+                          <option>实验室</option>
+                          <option>办公楼</option>
+                          <option>宿舍楼</option>
+                          <option>体育设施</option>
+                          <option>地标性建筑物</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_1">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC find_cateB col-3 find_ca0_1">
+                        <select class="form-control selectpicker" id="find_getCaInfo0_1">
+                          <option>医</option>
+                          <option>食</option>
+                          <option>行</option>
+                          <option>学</option>
+                          <option>玩</option>
+                          <option>修</option>
+                          <option>买</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_1_4">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC col-3 find_cateC find_ca0_1_4" >
+                        <select class="form-control selectpicker" id="find_getCaInfo0_1_4">
+                          <option>电影院</option>
+                          <option>奶茶店</option>
+                          <option>ktv</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_1_6">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC col-3 find_cateC find_ca0_1_6">
+                        <select class="form-control selectpicker" id="find_getCaInfo0_1_6">
+                          <option>超市或小卖部</option>
+                          <option>快递取货点</option>
+                          <option>银行</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC_b">&nbsp;</span>
+                    <span style="float:left;" class="fBC_b">
+                        <button  class="btn btn-success" id="sure_findByCate">确认</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC_b">&nbsp;</span>
+                    <span style="float:left;" class="fBC_b">
+                        <button  class="btn btn-warning" id="not_findByCate">取消</button>
+                    </span>
+
+                </div>
+
+                <div style="position:fixed;top:400px;z-index: 400;">
+                    <button style="width:110px;" class="btn btn-blue-2" id="findAll">显示所有地标</button>
+                </div>
+                
+>>>>>>> 6008790c307c83c99b704e2ed4bebe981516b5b0
 
                <div class="baidu-maps" style="width:100%;height:500px;" id="allmap" ></div>
 
@@ -672,6 +768,29 @@
                   </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
               </div><!-- /.modal -->
+
+              <!-- sample modal content -->
+              <div id="notFindLM" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">地标不存在</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger">
+                               未查找到符合查询条件的地标！
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="succ_cre">继续查询</button>
+                    </div>
+
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
 
 
 
@@ -832,6 +951,7 @@
     <script src="/js/mapAPIcontrol.js"></script>
 	<script type="text/javascript">
 		
+<<<<<<< HEAD
         var ml,temp;
         var markarry=new Array();
         $.ajax({
@@ -868,6 +988,219 @@
             });
             addClickHandler(content,marker,ml[i].name);
         }
+=======
+        $("#sure_creLM").hide();
+        $("#exit_creLM").hide();
+        $("#notName").hide();
+        $(".fBN").hide();
+        $(".fBC").hide();
+        $(".fBC_b").hide();
+        $("#sure_findByName").attr("disabled",true);
+
+        function addClickHandler(content,marker,tit){
+            marker.addEventListener("click", function(e){
+                var p = e.target;
+                var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                var searchInfoWindow = null;
+                searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+                    title  : tit,      //标题
+                    width  : 290,             //宽度
+                    height : 105,              //高度
+                    panel  : "panel",         //检索结果面板
+                    enableAutoPan : true,     //自动平移
+                    searchTypes :[]
+                });
+                searchInfoWindow.open(point);
+            });
+        }
+
+        function showLandMark(ml){
+            for(var i=0;i<ml.length;i++){
+                var marker = new BMap.Marker(new BMap.Point(ml[i].longitude,ml[i].latitude));  // 创建标注
+                var content ='<div style="margin:0;line-height:20px;padding:2px;">' +
+                        '<style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>'+
+                        '坐标:('+ml[i].longitude+','+ml[i].latitude+')<br/>'+'内容:'+ml[i].content+'<br/>'+'分类:'+ml[i].category+'<br/>'+'<button class="btn-default" id="'+ml[i].name+'" onclick="sureDelete(this)">删除'+'</button>'+'  '+'<button class="btn-default" id="'+ml[i].name+'"onclick="Edit(this)">修改'+'</button>'+'</div>';
+                map.addOverlay(marker); 
+                var label = new BMap.Label(ml[i].name,{offset:new BMap.Size(20,-10)});
+                marker.setLabel(label);
+                label.setStyle({
+                     color : "black",
+                     fontSize : "12px",
+                     height : "20px",
+                     backgroundColor :"0.05",
+                     border:"0",
+                     textAlign:"center",
+                     lineHeight : "20px",
+                     fontFamily:"微软雅黑"
+                });
+                addClickHandler(content,marker,ml[i].name);
+            }
+        }
+
+        var json_ml;
+        $.ajax({
+                type: "post",
+                async: false,
+                url: "/background/back_mainPage",
+                data : {
+                    type : "3",
+                },
+             success: function(data){
+                        json_ml=data;                        
+                    }   
+        });
+        showLandMark(json_ml);
+
+
+
+
+        //显示所有地标
+        $("#findAll").click(function(){
+            var allOverlay = map.getOverlays();
+            for (var i = 0; i < allOverlay.length; i++){
+                map.removeOverlay(allOverlay[i]);
+            }
+            showLandMark(json_ml);
+        });
+
+        //按名称查找
+        $("#findByName").click(function(){
+            $("#findByName").attr("disabled","true");
+            $(".fBN").show("500");
+            $("#fBN_Name").val("");
+        });
+        $("#fBN_Name").keyup(function(){
+            var fBN_Name = $("#fBN_Name").val();
+            if(fBN_Name == null || fBN_Name == undefined || fBN_Name == ""){
+                $("#sure_findByName").attr("disabled","true");
+            }else{
+                $("#sure_findByName").attr("disabled",false);
+            }
+        });
+        $("#sure_findByName").click(function(){
+            var fBN_Name = $("#fBN_Name").val();
+            if(!(fBN_Name == null || fBN_Name == undefined || fBN_Name == "")){
+                $.ajax({
+                    type: "post",
+                    url: "/background/back_mainPage",
+                    data : {
+                        type : "2",
+                        name : fBN_Name,
+                    },
+                 success: function(data){
+                            var allOverlay = map.getOverlays();
+                            for (var i = 0; i < allOverlay.length; i++){
+                                map.removeOverlay(allOverlay[i]);
+                            }
+                            if(data.length != 0){
+                                showLandMark(data);
+                            }else{
+                                $('#notFindLM').modal('show');
+                            } 
+                        }  
+                });
+            }else{
+                $("#sure_findByName").attr("disabled","true");
+            }
+        });
+        $("#not_findByName").click(function(){
+            $(".fBN").hide("500");
+            $("#findByName").attr("disabled",false);
+        });
+
+        //按分类查找
+        $("#findByCate").click(function(){
+            $("#findByCate").attr("disabled","true");
+            $(".find_ca0").show("50");
+            $(".fBC_b").show("50");
+            $(".find_cateA").mouseleave();
+
+        });
+        $(".find_cateA").mouseleave(function(){
+            var opA = $("#find_getCaInfo0").val();
+            $(".find_cateB").hide("50");
+            $(".find_cateC").hide("50");
+            if(opA == "学校设施"){
+                $(".find_ca0_0").show("50");
+            }else if(opA == "生活设施"){
+                $(".find_ca0_1").show("50");
+            }
+        });
+        $(".find_cateB").mouseleave (function(){
+            var opB = $("#find_getCaInfo0_1").val();
+            $(".find_cateC").hide("50");
+            if(opB == "玩"){
+                $(".find_ca0_1_4").show("50");
+            }else if(opB == "买"){
+                $(".find_ca0_1_6").show("50");
+            }
+        });
+        $("#sure_findByCate").click(function (){
+            var cate1;
+
+            var opA = $("#find_getCaInfo0").val();
+            var opB;
+            if(opA == "学校设施"){
+                opB = $("#find_getCaInfo0_0").val();
+                cate1 = opA + "," + opB;
+            }else if(opA == "生活设施"){
+                opB = $("#find_getCaInfo0_1").val();
+                if(opB == "玩"){
+                    cate1 = opA + "," + opB + "," +  $("#find_getCaInfo0_1_4").val();
+                }else if(opB == "买"){
+                    cate1 = opA + "," + opB + "," +  $("#find_getCaInfo0_1_6").val();
+                }else{
+                    cate1 = opA + "," + opB;
+                }
+            }else{
+                cate1 = "其它";
+            }
+
+
+            $.ajax({
+                type: "post",
+                url: "/background/back_mainPage",
+                data : {
+                    type : "4",
+                    cate : cate1,
+                },
+             success: function(data){
+                        var allOverlay = map.getOverlays();
+                        for (var i = 0; i < allOverlay.length; i++){
+                            map.removeOverlay(allOverlay[i]);
+                        }
+                        if(data.length != 0){
+                            showLandMark(data);
+                        }else{
+                            $('#notFindLM').modal('show');
+                        } 
+                    }   
+         });
+        });
+        $("#not_findByCate").click(function(){
+            $(".fBC").hide("500");
+            $(".fBC_b").hide("500");
+            $("#findByCate").attr("disabled",false);
+        });
+
+
+        //新建地标
+        $("#creLM").click(function(){
+            $("#sure_creLM").show();
+            $("#exit_creLM").show();
+            $("#creLM").attr("disabled","true"); 
+            $("#sure_creLM").attr("disabled","true"); 
+            creNewLM(crelan,crelon);
+        });
+
+        $("#sure_creLM").click(function(){
+            $(".cateB").hide();
+            $(".cateC").hide();
+            $("#ca0_0").show();
+            $("#posi").html("经度：" + crelon + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "纬度：" + crelan);
+            $("#notName").hide();
+        });
+>>>>>>> 6008790c307c83c99b704e2ed4bebe981516b5b0
 
         $(".cateA").mouseleave (function(){
             //alert($("#getCaInfo0").val());
@@ -1253,7 +1586,7 @@
             var opA = $("#getCaInfo0").val();
             var opB;
             if(opA == "学校设施"){
-                opB = $("#getCaInfo0_1").val();
+                opB = $("#getCaInfo0_0").val();
                 cate1 = opA + "," + opB;
             }else if(opA == "生活设施"){
                 opB = $("#getCaInfo0_1").val();
@@ -1313,9 +1646,6 @@
             window.location.href="/back_mainPage"; 
         });
 
-        // $(".choiceC1").click(function(){
-        //     $("#cate1").html(this.title + " <span class='" + "caret" + "'></span>");
-        // });
 
 	</script>
 
