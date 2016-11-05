@@ -14,20 +14,12 @@ router.get('/back_mainPage', function(req, res) {
 			return;
 		}
 		if (result) {
-			// var str="";
-			// console.log(result);
-			// for(var i=0;i<result.length;i++)
-			// {
-			// 	str=str+result[i].longitude+'^'+result[i].name+'^'+result[i].latitude+'^'+result[i].describe+'^'+result[i].category+'*';
-			// }
-			// console.log(str);
-			//res.send(result);
-			res.render('background/back_mainpage');
+			res.render('background/back_mainpage',{'landLength':result.length});
 		};			
 	});
 });
 
-router.post('/background/back_mainPage',function(req,res){
+router.post('/back_mainPage',function(req,res){
 
 
 	if(req.body.type == "1"){
@@ -85,9 +77,6 @@ router.post('/background/back_mainPage',function(req,res){
 	}else{
 
 	}
-
-
-
 
 	if(req.body.type == "2"){
 		var temp_flag = 1;
@@ -208,7 +197,6 @@ router.post('/background/back_mainPage',function(req,res){
 				res.send("yes");
 		}
 	}
-
 });
 
 module.exports = router;
