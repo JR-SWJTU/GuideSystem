@@ -13,6 +13,7 @@ router.get('/mainPage/announcement', function(req, res) {
 			return;
 		}
 		if (result) {
+			console.log("服务公告");
 			res.render('foreground/announcement', { result: result });
 		};			
 	});
