@@ -15,11 +15,19 @@ router.get('/back_mainPage', function(req, res) {
 		}
 		if (result) {
 			res.render('background/back_mainpage',{'landLength':result.length});
+			// var str="";
+			// console.log(result);
+			// for(var i=0;i<result.length;i++)
+			// {
+			// 	str=str+result[i].longitude+'^'+result[i].name+'^'+result[i].latitude+'^'+result[i].describe+'^'+result[i].category+'*';
+			// }
+			// console.log(str);
+			//res.send(result);
 		};			
 	});
 });
 
-router.post('/back_mainPage',function(req,res){
+router.post('/background/back_mainPage',function(req,res){
 
 
 	if(req.body.type == "1"){
@@ -56,7 +64,7 @@ router.post('/back_mainPage',function(req,res){
 			res.send("yes");
 		 
 		
-	}else if(req.body.type == "9"){
+	}else if(req.body.type == "8"){
 		var find_name = req.body.name;
 		Landmark.find({name:{$regex:find_name}},function(err,result){
 		 	if(err){
@@ -64,6 +72,17 @@ router.post('/back_mainPage',function(req,res){
 				return;
 			}
 			res.send(result);
+		});
+	}else if(req.body.type=="9"){
+		Landmark.find({},function(err,result){
+		 	if(err){
+				req.session()
+				console.log("find  " + err);
+				return;
+			}
+			if (result) {
+				res.send(result);			
+			}		
 		});
 	}else if(req.body.type=="10"){
 		var find_cate = req.body.cate;
@@ -77,6 +96,7 @@ router.post('/back_mainPage',function(req,res){
 	}else{
 
 	}
+
 
 	if(req.body.type == "2"){
 		var temp_flag = 1;

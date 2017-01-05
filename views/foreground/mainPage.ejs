@@ -27,6 +27,8 @@
         <link href="/libs/prettify/github.css" rel="stylesheet" />
         
                 <!-- Extra CSS Libraries Start -->
+                 <link href="/libs/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+                <link href="/libs/summernote/summernote.css" rel="stylesheet" type="text/css" />
                 <link href="/libs/rickshaw/rickshaw.min.css" rel="stylesheet" type="text/css" />
                 <link href="/libs/morrischart/morris.css" rel="stylesheet" type="text/css" />
                 <link href="/libs/jquery-jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
@@ -52,25 +54,17 @@
         <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png" />
         <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png" />
         <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png" />
-        
+        <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png" />
         <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png" />
 
+        <!--地图文件-->
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZmWD1OyGGhLGNWQXWALFTRPT4EPLsbs1"></script>
+         <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 
 
 
-        <!--地图依赖文件-->
-        <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-        <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
-        <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-        <title>百度地图API自定义地图</title>
-        <!--引用百度地图API-->
-        <style type="text/css">
-            html,body{margin:0;padding:0;}
-            .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
-            .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
-        </style>
-        <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
     </head>
 
     <body class="fixed-left">
@@ -153,7 +147,7 @@
                                 <li class="dropdown-header notif-header"><i class="icon-bell-2"></i> New Notifications<a class="pull-right" href="#"><i class="fa fa-cog"></i></a></li>
                                 <li class="unread">
                                     <a href="#">
-                                        <p><strong><%= userName%></strong> Uploaded a photo <strong>&#34;DSC000254.jpg&#34;</strong>
+                                        <p><strong>管理员</strong> Uploaded a photo <strong>&#34;DSC000254.jpg&#34;</strong>
                                             <br /><i>2 minutes ago</i>
                                         </p>
                                     </a>
@@ -231,7 +225,7 @@
                         </li>
                         <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
                         <li class="dropdown topbar-profile">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="images/users/user-35.jpg"></span><strong><%= userName%></strong> <i class="fa fa-caret-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="images/users/user-35.jpg"></span><strong><%= userName %></strong> <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">My Profile</a></li>
                                 <li><a href="#">Change Password</a></li>
@@ -243,7 +237,7 @@
                             </ul>
                         </li>
                         <li class="right-opener">
-                            <a href="javascript:;" class="open-right"><i class="fa fa-angle-double-left"></i><i class="fa fa-angle-double-right"></i></a>
+                            <a href="javascript:;" ><i class="fa fa-angle-double-left"></i><i class="fa fa-angle-double-right"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -274,7 +268,7 @@
                   <a href="profile.html" class="rounded-image profile-image"><img src="images/users/user-100.jpg"></a>
                 </div>
                 <div class="col-xs-8">
-                    <div class="profile-text">欢迎 <b><%= userName %></b></div>
+                    <div class="profile-text">欢迎 <b>用户</b></div>
                     <div class="profile-buttons">
                       <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
                       <a href="#connect" class="open-right"><i class="fa fa-comments"></i></a>
@@ -289,46 +283,17 @@
             <!--- Divider -->
             <div id="sidebar-menu">
                 <ul>
-                    <li class='has_sub'>
-                        <a href='javascript:void(0);'><i class='icon-home-3'></i><span>学校设施</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                        <ul>
-                            <li><a href='index.html' class='active'><span>Dashboard v1</span></a></li>
-                            <li><a href='index2.html'><span>Dashboard v2</span></a></li>
-                        </ul>
+                    <li  class='active'>
+                        <a href='javascript:void(0);'><i class='icon-home-3'></i><span>地标浏览</span> <span class="pull-right"></span></a>
                     </li>
-                    <li class='has_sub'>
-                        <a href='javascript:void(0);'><i class='icon-feather'></i><span>生活设施</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                        <ul>
-                            <li><a href='alerts.html'><span>Alerts</span></a></li>
-                        </ul>
+                    <li >
+                        <a href='/mainPage/admissionNotice'><i class='icon-pencil-3'></i><span>入学引导</span> <span class="pull-right"></span></a>
                     </li>
-                    <li class='has_sub'>
-                        <a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>入学引导</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                        <ul>
-                            <li><a href='forms.html'><span>Form Elements</span></a></li>
-                            <li><a href='advanced-forms.html'><span>Advanced Forms</span></a></li>
-                            <li><a href='form-wizard.html'><span>Form Wizard</span></a></li>
-                            <li><a href='form-validation.html'><span>Form Validation</span></a></li>
-                            <li><a href='form-uploads.html'><span>File Uploads</span></a></li>
-                        </ul>
+                    <li >
+                        <a href='/mainPage/announcement'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
                     </li>
-                    <li class='has_sub'>
-                        <a href='/mainPage/announcement'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                    </li>
-<!--                     <li class='has_sub'>
-    <a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>失物招领</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-    <ul>
-        <li><a href='google-maps.html'><span>Google Maps</span></a></li>
-        <li><a href='vector-maps.html'><span>Vector Maps</span></a></li>
-    </ul>
-</li> -->
-                    <li class='has_sub'>
-                        <a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>常用网站</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a>
-                        <ul>
-                            <li><a href='inbox.html'><span>Inbox</span></a></li>
-                            <li><a href='read-message.html'><span>View Email</span></a></li>
-                            <li><a href='new-message.html'><span>New Message</span></a></li>
-                        </ul>
+                    <li >
+                        <a href='/mainPage/feedback'><i class='fa fa-envelope'></i><span>意见反馈</span> <span class="pull-right"></span></a>
                     </li>
                 </ul>                    
                 <div class="clearfix"></div>
@@ -339,221 +304,301 @@
        </div>
     <!-- Left Sidebar End -->           
 
-
-
-
-
-    <!-- Right Sidebar Start -->
-    <div class="right side-menu">
-        <ul class="nav nav-tabs nav-justified" id="right-tabs">
-          <li class="active"><a href="#feed" data-toggle="tab" title="Live Feed"><i class="icon-rss-2"></i></a></li>
-          <li><a href="#connect" data-toggle="tab" title="Chat"><i class="icon-chat"></i></a></li>
-          <li><a href="#settings" data-toggle="tab" title="Preferences"><i class="icon-wrench"></i></a></li>
-        </ul>
-        <div class="clearfix"></div>
-        <div class="tab-content">
-            <div class="tab-pane active" id="feed">
-                <div class="tab-inner slimscroller">
-                    <div class="search-right">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <div class="right-toolbar">
-                        <a href="javascript:;" class="pull-right">Settings <i class="icon-cog"></i></a>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="panel-group" id="collapse">
-                      <div class="panel panel-default">
-                        <div class="panel-heading bg-orange-1">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#rnotifications">
-                              <i class="icon-bell-2"></i> Notifications
-                              <span class="label bg-darkblue-1 pull-right">4</span>
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="rnotifications" class="panel-collapse collapse in">
-                          <div class="panel-body">
-                            <ul class="list-unstyled" id="notification-list">
-                                <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-video"></i></span> 1 Video Uploaded <span class="muted">12 minutes ago</span></a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-users-1"></i></span> 3 Users signed up <span class="muted">16 minutes ago</span></a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-picture-1"></i></span> 1 Video Uploaded <span class="muted">12 minutes ago</span></a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-hourglass-1"></i></span> Deadline for 1 project <span class="muted">12 minutes ago</span></a></li>
-                            </ul>
-                            <a class="btn btn-block btn-sm btn-warning">See all notifications</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading bg-green-3">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#remails">
-                              <i class="icon-mail"></i> E-mails
-                              <span class="label bg-darkblue-1 pull-right">3</span>
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="remails" class="panel-collapse collapse in">
-                          <div class="panel-body">
-                            <ul class="list-unstyled" id="inbox-list">
-                                <li><a href="javascript:;"><span class="sender"><i class="icon-star text-yellow-2"></i> Kim Wilde</span> <span class="datetime">6 mins ago</span>
-                                    <span class="title">You keep me hangin on</span>
-                                    <span class="content">Where are you? I am waiting for 3 hours in the restaurant. I ate 3 hamburgers.</span>
-                                </a></li>
-                                <li><a href="javascript:;"><span class="sender">Tyler Durden</span> <span class="datetime">13 hours ago</span>
-                                    <span class="title">Buy some soap from market before</span>
-                                    <span class="content">We are crowded here. We need some more soap at home. Buy some before you come home.</span>
-                                </a></li>
-                                <li><a href="javascript:;"><span class="sender">John Bonomo</span> <span class="datetime">Yesterday</span>
-                                    <span class="title">Late delivery</span>
-                                    <span class="content">Hello, I ordered 15 box of viagra for a friend of mine but he still hasn't receive them.</span>
-                                </a></li>
-                            </ul>
-                            <a class="btn btn-block btn-sm btn-primary">Go to inbox</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading bg-blue-1">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#rupdates">
-                              <i class="icon-signal-2"></i> Updates
-                              <span class="label bg-darkblue-1 pull-right">5</span>
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="rupdates" class="panel-collapse collapse in">
-                          <div class="panel-body">
-                            <ul class="list-unstyled" id="updates-list">
-                                <li><a href="javascript:;"><span class="icon-wrapper bg-green-1"><i class="icon-comment-1"></i></span> <b>David Guetta</b> came online <abbr title="15 seconds ago">just now</abbr>.</a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper bg-red-1"><i class="icon-user-3"></i></span> <b>Katy Perry</b> updated her profile <abbr title="4 mins ago">4 mins ago</abbr>.</a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper bg-blue-1"><i class="icon-twitter-2"></i></span> <b>4 tweets posted</b> with cronjob <abbr title="22 mins ago">22 mins ago</abbr>.</a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper bg-orange-3"><i class="icon-water"></i></span> <b>Adele</b> set fire to the rain <abbr title="43 mins ago">43 mins ago</abbr>.</a></li>
-                                <li><a href="javascript:;"><span class="icon-wrapper bg-pink-2"><i class="icon-heart-broken"></i></span> <b>Taylor Swift</b> learned that you are trouble <abbr title="3 hours ago">3 days ago</abbr>.</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="connect">
-                <div class="tab-inner slimscroller">
-                    <div class="search-right">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>  
-                    <div class="panel-group" id="collapse">
-                      <div class="panel panel-default" id="chat-panel">
-                        <div class="panel-heading bg-darkblue-2">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#chat-coll">
-                              <i class="icon-briefcase-1"></i> Colleagues
-                              <span class="label bg-darkblue-1 pull-right">14</span>
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="chat-coll" class="panel-collapse collapse in">
-                          <div class="panel-body">
-                            <ul class="list-unstyled" id="chat-list">
-                                <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="images/users/chat/1.jpg"></span> <span class="chat-user-name">Dorothy Simons</span><span class="chat-user-msg">I wish I was a bird in the sky</span></a></li>
-                                <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="images/users/chat/2.jpg"></span> <span class="chat-user-name">John Malkovich</span><span class="chat-user-msg">You were the traitor</span></a></li>
-                                <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="images/users/chat/3.jpg"></span> <span class="chat-user-name">Jessica Simons</span><span class="chat-user-msg">Where is my mind</span></a></li>
-                                <li><a href="javascript:;" class="away"><span class="chat-user-avatar"><img src="images/users/chat/4.jpg"></span> <span class="chat-user-name">Jack Stallman</span><span class="chat-user-msg">Away since 13:32</span></a></li>
-                                <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="images/users/chat/5.jpg"></span> <span class="chat-user-name">Neil Armstrong</span><span class="chat-user-msg" title="I am flying to the moon and back">I am flying to the moon and back</span></a></li>
-                                <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="images/users/chat/6.jpg"></span> <span class="chat-user-name">Hollywood Studios</span><span class="chat-user-msg">Yes he definitely is!</span></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel panel-default" id="chat-panel">
-                        <div class="panel-heading bg-darkblue-2">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                              <i class="icon-heart-3"></i> Friends
-                              <span class="label bg-darkblue-1 pull-right">3</span>
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse in">
-                          <div class="panel-body">
-                            <ul class="list-unstyled" id="chat-list">
-                                <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="images/users/chat/1.jpg"></span> <span class="chat-user-name">Dorothy Simons</span><span class="chat-user-msg">I wish I was a bird in the sky</span></a></li>
-                                <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="images/users/chat/2.jpg"></span> <span class="chat-user-name">John Malkovich</span><span class="chat-user-msg">You were the traitor</span></a></li>
-                                <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="images/users/chat/3.jpg"></span> <span class="chat-user-name">Jessica Simons</span><span class="chat-user-msg" title="Eminem - The Monster ft. Rihanna"><i class="icon-play"></i> Eminem - The Monster ft. Rihanna</span></a></li>
-                                <li><a href="javascript:;" class="away"><span class="chat-user-avatar"><img src="images/users/chat/4.jpg"></span> <span class="chat-user-name">Jack Stallman</span><span class="chat-user-msg">Away since 13:32</span></a></li>
-                                <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="images/users/chat/5.jpg"></span> <span class="chat-user-name">Neil Armstrong</span><span class="chat-user-msg" title="I am flying to the moon and back">I am flying to the moon and back</span></a></li>
-                                <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="images/users/chat/6.jpg"></span> <span class="chat-user-name">Hollywood Studios</span><span class="chat-user-msg">Yes he definitely is!</span></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane" id="settings">
-                <div class="tab-inner slimscroller">
-                    <div class="col-sm-12">
-                        <h3>Preferences</h3>
-                        <div class="row">
-                            <div class="col-xs-8">
-                                Live data updates
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="checkbox" class="ios-switch ios-switch-success ios-switch-sm" checked />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-8">
-                                Live feeds
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="checkbox" class="ios-switch ios-switch-success ios-switch-sm" checked />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-8">
-                                Sync data to cloud
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="checkbox" class="ios-switch ios-switch-success ios-switch-sm" checked />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-8">
-                                Keep activity record
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="checkbox" class="ios-switch ios-switch-danger ios-switch-sm" checked />
-                            </div>
-                        </div>
-                        <h4>Other Settings</h4>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label class="checkboxw"><input type="checkbox" checked> Autosave settings</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label class="checkboxw"><input type="checkbox"> Always online</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Right Sidebar End -->  
-
-
-
-
     <!-- Start right content -->
-        <div class="content-page">
-
+    <div class="content-page">
+            <!-- ============================================================== -->
+            <!-- Start Content here -->
+            <!-- ============================================================== -->
             <div class="content">
-                <!--百度地图容器-->
-                <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+
+                <div style="position:fixed;right:20px;top:300px;z-index: 400;">
+                    <span style="">
+                        <button style="width:110px;" class="btn btn-blue-2" id="creLM">
+                        申请新地标</button>
+                    </span>
+                </div>
+                <div style="position:fixed;top:350px;right:20px;z-index: 400;">
+                    <button class="btn btn-blue-2" id="sure_creLM" display="true"
+                        data-toggle="modal" data-target="#creNLM">确认选点</button>
+                </div>
+                <div style="position:fixed;top:400px;right:20px;z-index: 400;">
+                    <button class="btn btn-blue-2" id="exit_creLM">退出创建</button>
+                </div>
+
+                <div style="position:fixed;top:300px;z-index: 400;">
+                    <span style="float:left;">
+                        <button style="width:110px;" class="btn btn-blue-2" id="findByName">按名称查询</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBN">&nbsp;</span>
+                    <span style="float:left;" class="fBN">
+                        <input type="text" class="form-control" id="fBN_Name" placeholder="请输入查询地标名称...">
+                    </span>
+                    <span style="float:left;width:10px;" class="fBN">&nbsp;</span>
+                    <span style="float:left;" class="fBN">
+                        <button  class="btn btn-success" id="sure_findByName">确认</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBN">&nbsp;</span>
+                    <span style="float:left;" class="fBN">
+                        <button  class="btn btn-warning" id="not_findByName">取消</button>
+                    </span>
+                </div>
+                <div style="position:fixed;top:350px;z-index: 400;">
+                    <span style="float:left;">
+                        <button style="width:110px;" class="btn btn-blue-2" id="findByCate">按分类查询</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC find_cateA col-3 find_ca0">
+                        <select class="form-control selectpicker" id="find_getCaInfo0">
+                          <option>学校设施</option>
+                          <option>生活设施</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_0">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC find_cateB col-3 find_ca0_0">
+                        <select class="form-control selectpicker" id="find_getCaInfo0_0">
+                          <option>教学楼</option>
+                          <option>实验室</option>
+                          <option>办公楼</option>
+                          <option>宿舍楼</option>
+                          <option>体育设施</option>
+                          <option>地标性建筑物</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_1">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC find_cateB col-3 find_ca0_1">
+                        <select class="form-control selectpicker" id="find_getCaInfo0_1">
+                          <option>医</option>
+                          <option>食</option>
+                          <option>行</option>
+                          <option>学</option>
+                          <option>玩</option>
+                          <option>修</option>
+                          <option>买</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_1_4">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC col-3 find_cateC find_ca0_1_4" >
+                        <select class="form-control selectpicker" id="find_getCaInfo0_1_4">
+                          <option>电影院</option>
+                          <option>奶茶店</option>
+                          <option>ktv</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC find_ca0_1_6">&nbsp;</span>
+                    <span style="float:left;width:125px;" class="fBC col-3 find_cateC find_ca0_1_6">
+                        <select class="form-control selectpicker" id="find_getCaInfo0_1_6">
+                          <option>超市或小卖部</option>
+                          <option>快递取货点</option>
+                          <option>银行</option>
+                          <option>其它</option>
+                        </select>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC_b">&nbsp;</span>
+                    <span style="float:left;" class="fBC_b">
+                        <button  class="btn btn-success" id="sure_findByCate">确认</button>
+                    </span>
+                    <span style="float:left;width:10px;" class="fBC_b">&nbsp;</span>
+                    <span style="float:left;" class="fBC_b">
+                        <button  class="btn btn-warning" id="not_findByCate">取消</button>
+                    </span>
+
+                </div>
+
+                <div style="position:fixed;top:400px;z-index: 400;">
+                    <button style="width:110px;" class="btn btn-blue-2" id="findAll">显示所有地标</button>
+                </div>
+                
+
+               <div class="baidu-maps" style="width:100%;height:500px;" id="allmap" ></div>
+
+
+                <!-- sample modal content -->
+              <div id="creNLM" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">申请新地标</h4>
+                    </div>
+                    <div class="modal-body">
+                                  <div class="form-group">
+                                    <label id="posi"></label>
+                                </div><div class="form-group">
+                                    <label class="control-label">名称：</label>
+                                    <input type="text" class="form-control" id="name">
+                                    <div class="alert alert-danger nomargin" id="notName">
+                                地标名称未填写！</div>
+                                   </div>
+                                 
+                                 <label class="col-2 control-label" style="width:50px;float:left;">类别：</label>
+                                <div class="col-3 cateA" style="width:125px;float:left;" id="ca0">
+                                    <select class="form-control selectpicker" id="getCaInfo0">
+                                      <option>学校设施</option>
+                                      <option>生活设施</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+
+                                <div style="float:left;width:50px;">&nbsp;</div>
+                                
+                                <div class="col-3 cateB" style="width:125px;float:left;" id="ca0_0">
+                                    <select class="form-control selectpicker" id="getCaInfo0_0">
+                                      <option>教学楼</option>
+                                      <option>实验室</option>
+                                      <option>办公楼</option>
+                                      <option>宿舍楼</option>
+                                      <option>体育设施</option>
+                                      <option>地标性建筑物</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-3 cateB" style="width:125px;float:left;" id="ca0_1">
+                                    <select class="form-control selectpicker" id="getCaInfo0_1">
+                                      <option>医</option>
+                                      <option>食</option>
+                                      <option>行</option>
+                                      <option>学</option>
+                                      <option>玩</option>
+                                      <option>修</option>
+                                      <option>买</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="float:left;width:50px;">&nbsp;</div>
+
+                                <div class="col-3 cateC" style="width:125px;float:left;" id="ca0_1_4">
+                                    <select class="form-control selectpicker" id="getCaInfo0_1_4">
+                                      <option>电影院</option>
+                                      <option>奶茶店</option>
+                                      <option>ktv</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-3 cateC" style="width:125px;float:left;" id="ca0_1_6">
+                                    <select class="form-control selectpicker" id="getCaInfo0_1_6">
+                                      <option>超市或小卖部</option>
+                                      <option>快递取货点</option>
+                                      <option>银行</option>
+                                      <option>其它</option>
+                                    </select>
+                                </div>
+
+                                <br/><br/><br/>
+
+                                  <div class="form-group">
+                                    <label>地标描述：</label>
+                                    <textarea class="form-control" id="describe" style="height: 140px; resize: none;"></textarea>
+                                  </div>
+                                   <div class="form-group">
+                                    <label class="control-label">图片选择：</label>
+                                      <input id="pictu" type="file" class="btn btn-default" title="Select file">
+                                  </div>
+                                  <p>若无图片，则无须选择。</p>
+                        </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-primary" id="scLM">确认申请</button>
+                    </div>
+
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+
+
+                <!-- sample modal content -->
+              <div id="suc_creNLM" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">成功申请新地标</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-success">
+                               您已成功申请新坐标！
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="succ_cre">确认</button>
+                    </div>
+
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+              <!-- sample modal content -->
+              <div id="notFindLM" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">地标不存在</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger">
+                               未查找到符合查询条件的地标！
+                        </div>
+                    </div
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="succ_cre">继续查询</button>
+                    </div>
+
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+                
+            <!-- sample modal content -->
+              <div id="showComment" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">地标评论</h4>
+                    </div>
+                    <div class="modal-body" id="com_content">
+                        <div id="com_content">
+
+                        </div>
+                        
+                        <div class="cli_pub_com">
+                            <textarea class="summernote-small form-control"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button style="float:left;" class="btn btn-primary pub_com">发布评论</button>
+                      <button style="float:left;" class="btn btn-success cli_pub_com" id="sure_pubcom">确认提交</button>
+                      <button style="float:left;" class="btn btn-danger cli_pub_com" id="exit_pubcom">退出发布</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+
+
+
+
+<button class='btn btn-primary btn-xs' data-toggle='modal' data-target='#showComment'>评论</button><button class='btn btn-primary btn-xs' data-toggle='modal' data-target='#showComment'>评论</button>
+<div class="form-group">
+                                            <div class="col-sm-12">
+                                                <textarea class="summernote-small form-control"></textarea>
+                                            </div>
+                                        </div>
+
             </div>
             <!-- ============================================================== -->
             <!-- End content here -->
@@ -578,6 +623,7 @@
 
     <script>
         var resizefunc = [];
+        
     </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/libs/jquery/jquery-1.11.1.min.js"></script>
@@ -611,7 +657,12 @@
     <script src="/libs/d3/d3.v3.js"></script>
     <script src="/libs/rickshaw/rickshaw.min.js"></script>
     <script src="/libs/raphael/raphael-min.js"></script>
-    <script src="/libs/morrischart/morris.min.js"></script>
+    <script src="/libs/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="/libs/bootstrap-inputmask/inputmask.js"></script>
+    <script src="/libs/summernote/summernote.js"></script>
+    <script src="/js/pages/forms.js"></script>
+    <script src="/js/pages/new-message.js"></script>
+<!--    <script src="/libs/morrischart/morris.min.js"></script>   -->
     <script src="/libs/jquery-knob/jquery.knob.js"></script>
     <script src="/libs/jquery-jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="/libs/jquery-jvectormap/js/jquery-jvectormap-us-aea-en.js"></script>
@@ -623,105 +674,367 @@
     <script src="/js/apps/calculator.js"></script>
     <script src="/js/apps/todo.js"></script>
     <script src="/js/apps/notes.js"></script>
-    <script src="/js/pages/index.js"></script>
+    <!-- <script src="/js/pages/index.js"></script>   -->
 
-
+    
+    <!-- 地图函数引用 -->
+    <script src="/js/mapAPIcontrol.js"></script>
     <script type="text/javascript">
-    //创建和初始化地图函数：
-    function initMap(){
-        createMap();//创建地图
-        setMapEvent();//设置地图事件
-        addMapControl();//向地图添加控件
-        addMarker();//向地图中添加marker
-    }
-    
-    //创建地图函数：
-    function createMap(){
-        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(103.987091,30.772429);//定义一个中心点坐标
-        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
-        window.map = map;//将map变量存储在全局
-    }
-    
-    //地图事件设置函数：
-    function setMapEvent(){
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
-    }
-    
-    //地图控件添加函数：
-    function addMapControl(){
-        //向地图中添加缩放控件
-    var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-    map.addControl(ctrl_nav);
-        //向地图中添加缩略图控件
-    var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
-    map.addControl(ctrl_ove);
-        //向地图中添加比例尺控件
-    var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-    map.addControl(ctrl_sca);
-    }
-    
-    //标注点数组
-    var markerArr = [{title:"龙翔超市",content:"坑爹超市",point:"103.985379|30.772406",isOpen:1,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
-         ];
-    //创建marker
-    function addMarker(){
-        for(var i=0;i<markerArr.length;i++){
-            var json = markerArr[i];
-            var p0 = json.point.split("|")[0];
-            var p1 = json.point.split("|")[1];
-            var point = new BMap.Point(p0,p1);
-            var iconImg = createIcon(json.icon);
-            var marker = new BMap.Marker(point,{icon:iconImg});
-            var iw = createInfoWindow(i);
-            var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
-            marker.setLabel(label);
-            map.addOverlay(marker);
-            label.setStyle({
-                        borderColor:"#808080",
-                        color:"#333",
-                        cursor:"pointer"
-            });
-            
-            (function(){
-                var index = i;
-                var _iw = createInfoWindow(i);
-                var _marker = marker;
-                _marker.addEventListener("click",function(){
-                    this.openInfoWindow(_iw);
+        
+        $("#sure_creLM").hide();
+        $("#exit_creLM").hide();
+        $("#notName").hide();
+        $(".fBN").hide();
+        $(".fBC").hide();
+        $(".fBC_b").hide();
+        $("#sure_findByName").attr("disabled",true);
+
+        function addClickHandler(content,marker,tit){
+            marker.addEventListener("click", function(e){
+                var p = e.target;
+                var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                var searchInfoWindow = null;
+                searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+                    title  : tit,      //标题
+                    width  : 290,             //宽度
+                    height : 105,              //高度
+                    panel  : "panel",         //检索结果面板
+                    enableAutoPan : true,     //自动平移
+                    searchTypes :[]
                 });
-                _iw.addEventListener("open",function(){
-                    _marker.getLabel().hide();
-                })
-                _iw.addEventListener("close",function(){
-                    _marker.getLabel().show();
-                })
-                label.addEventListener("click",function(){
-                    _marker.openInfoWindow(_iw);
-                })
-                if(!!json.isOpen){
-                    label.hide();
-                    _marker.openInfoWindow(_iw);
-                }
-            })()
+                searchInfoWindow.open(point);
+            });
         }
-    }
-    //创建InfoWindow
-    function createInfoWindow(i){
-        var json = markerArr[i];
-        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
-        return iw;
-    }
-    //创建一个Icon
-    function createIcon(json){
-        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
-        return icon;
-    }
-    
-    initMap();//创建和初始化地图
-</script>
+
+        function showLandMark(ml){
+            for(var i=0;i<ml.length;i++){
+                var marker = new BMap.Marker(new BMap.Point(ml[i].longitude,ml[i].latitude));  // 创建标注
+                var content ='<div style="margin:0;line-height:20px;padding:2px;">' +
+                        '<style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>'+
+                        '坐标:('+ml[i].longitude+','+ml[i].latitude+')<br/>'+'内容:'+ml[i].content+'<br/>'+'分类:'+ml[i].category+'<br/>'+
+                        "<button class='btn btn-primary btn-xs' id='"+ml[i]._id+"' onclick='showLMComment(this)'>评论</button>" + '</div>';
+                map.addOverlay(marker); 
+                var label = new BMap.Label(ml[i].name,{offset:new BMap.Size(20,-10)});
+                marker.setLabel(label);
+                label.setStyle({
+                     color : "black",
+                     fontSize : "12px",
+                     height : "20px",
+                     backgroundColor :"0.05",
+                     border:"0",
+                     textAlign:"center",
+                     lineHeight : "20px",
+                     fontFamily:"微软雅黑"
+                });
+                addClickHandler(content,marker,ml[i].name);
+            }
+        }
+
+        var json_ml;
+        $.ajax({
+                type: "post",
+                async: false,
+                url: "/background/back_mainPage",
+                data : {
+                    type : "3",
+                },
+             success: function(data){
+                        json_ml=data;                        
+                    }   
+        });
+        showLandMark(json_ml);
+
+
+
+
+        //显示所有地标
+        $("#findAll").click(function(){
+            var allOverlay = map.getOverlays();
+            for (var i = 0; i < allOverlay.length; i++){
+                map.removeOverlay(allOverlay[i]);
+            }
+            showLandMark(json_ml);
+        });
+
+        //按名称查找
+        $("#findByName").click(function(){
+            $("#findByName").attr("disabled","true");
+            $(".fBN").show("500");
+            $("#fBN_Name").val("");
+        });
+        $("#fBN_Name").keyup(function(){
+            var fBN_Name = $("#fBN_Name").val();
+            if(fBN_Name == null || fBN_Name == undefined || fBN_Name == ""){
+                $("#sure_findByName").attr("disabled","true");
+            }else{
+                $("#sure_findByName").attr("disabled",false);
+            }
+        });
+        $("#sure_findByName").click(function(){
+            var fBN_Name = $("#fBN_Name").val();
+            if(!(fBN_Name == null || fBN_Name == undefined || fBN_Name == "")){
+                $.ajax({
+                    type: "post",
+                    url: "/background/back_mainPage",
+                    data : {
+                        type : "8",
+                        name : fBN_Name,
+                    },
+                 success: function(data){
+                            var allOverlay = map.getOverlays();
+                            for (var i = 0; i < allOverlay.length; i++){
+                                map.removeOverlay(allOverlay[i]);
+                            }
+                            if(data.length != 0){
+                                showLandMark(data);
+                            }else{
+                                $('#notFindLM').modal('show');
+                            } 
+                        }  
+                });
+            }else{
+                $("#sure_findByName").attr("disabled","true");
+            }
+        });
+        $("#not_findByName").click(function(){
+            $(".fBN").hide("500");
+            $("#findByName").attr("disabled",false);
+        });
+
+        //按分类查找
+        $("#findByCate").click(function(){
+            $("#findByCate").attr("disabled","true");
+            $(".find_ca0").show("50");
+            $(".fBC_b").show("50");
+            $(".find_cateA").mouseleave();
+
+        });
+        $(".find_cateA").mouseleave(function(){
+            var opA = $("#find_getCaInfo0").val();
+            $(".find_cateB").hide("50");
+            $(".find_cateC").hide("50");
+            if(opA == "学校设施"){
+                $(".find_ca0_0").show("50");
+            }else if(opA == "生活设施"){
+                $(".find_ca0_1").show("50");
+            }
+        });
+        $(".find_cateB").mouseleave (function(){
+            var opA = $("#find_getCaInfo0").val();
+            
+            var opB = $("#find_getCaInfo0_1").val();
+            $(".find_cateC").hide("50");
+            if(opB == "玩" && opA == "生活设施"){
+                $(".find_ca0_1_4").show("50");
+            }else if(opB == "买" && opA == "生活设施"){
+                $(".find_ca0_1_6").show("50");
+            }
+        });
+        $("#sure_findByCate").click(function (){
+            var cate1;
+
+            var opA = $("#find_getCaInfo0").val();
+            var opB;
+            if(opA == "学校设施"){
+                opB = $("#find_getCaInfo0_0").val();
+                cate1 = opA + "," + opB;
+            }else if(opA == "生活设施"){
+                opB = $("#find_getCaInfo0_1").val();
+                if(opB == "玩"){
+                    cate1 = opA + "," + opB + "," +  $("#find_getCaInfo0_1_4").val();
+                }else if(opB == "买"){
+                    cate1 = opA + "," + opB + "," +  $("#find_getCaInfo0_1_6").val();
+                }else{
+                    cate1 = opA + "," + opB;
+                }
+            }else{
+                cate1 = "其它";
+            }
+
+
+            $.ajax({
+                type: "post",
+                url: "/background/back_mainPage",
+                data : {
+                    type : "10",
+                    cate : cate1,
+                },
+             success: function(data){
+                        var allOverlay = map.getOverlays();
+                        for (var i = 0; i < allOverlay.length; i++){
+                            map.removeOverlay(allOverlay[i]);
+                        }
+                        if(data.length != 0){
+                            showLandMark(data);
+                        }else{
+                            $('#notFindLM').modal('show');
+                        } 
+                    }   
+         });
+        });
+        $("#not_findByCate").click(function(){
+            $(".fBC").hide("500");
+            $(".fBC_b").hide("500");
+            $("#findByCate").attr("disabled",false);
+        });
+
+
+        //新建地标
+        $("#creLM").click(function(){
+            $("#sure_creLM").show();
+            $("#exit_creLM").show();
+            $("#creLM").attr("disabled","true"); 
+            $("#sure_creLM").attr("disabled","true"); 
+            creNewLM(crelan,crelon);
+        });
+
+        $("#sure_creLM").click(function(){
+            $(".cateB").hide();
+            $(".cateC").hide();
+            $("#ca0_0").show();
+            $("#posi").html("经度：" + crelon + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "纬度：" + crelan);
+            $("#notName").hide();
+        });
+
+        $("#exit_creLM").click(function(){
+            map.clearOverlays();
+            $("#sure_creLM").hide();
+            $("#exit_creLM").hide();
+            $("#creLM").attr("disabled",false); 
+        });
+
+
+         //分类设置
+        $(".cateA").mouseleave (function(){
+            //alert($("#getCaInfo0").val());
+            //alert($("getCaInfo1").children("option").html());
+            var opA = $("#getCaInfo0").val();
+            $(".cateB").hide("50");
+            $(".cateC").hide("50");
+            if(opA == "学校设施"){
+                $("#ca0_0").show("50");
+            }else if(opA == "生活设施"){
+                $("#ca0_1").show("50");
+            }
+        });
+        $(".cateB").mouseleave (function(){
+            //alert($("#getCaInfo0").val());
+            //alert($("getCaInfo1").children("option").html());
+            var opA = $("#getCaInfo0").val();
+            var opB = $("#getCaInfo0_1").val();
+            $(".cateC").hide("50");
+            if(opB == "玩" && opA == "生活设施"){
+                $("#ca0_1_4").show("50");
+            }else if(opB == "买" && opA == "生活设施"){
+                $("#ca0_1_6").show("50");
+            }
+        });
+
+
+        $("#scLM").click(function(){
+            var name = $("#name").val();
+            var des = $("#describe").val();
+            var pictu = $("#pictu").val();
+            var cate1;
+
+            var opA = $("#getCaInfo0").val();
+            var opB;
+            if(opA == "学校设施"){
+                opB = $("#getCaInfo0_0").val();
+                cate1 = opA + "," + opB;
+            }else if(opA == "生活设施"){
+                opB = $("#getCaInfo0_1").val();
+                if(opB == "玩"){
+                    cate1 = opA + "," + opB + "," +  $("#getCaInfo0_1_4").val();
+                }else if(opB == "买"){
+                    cate1 = opA + "," + opB + "," +  $("#getCaInfo0_1_6").val();
+                }else{
+                    cate1 = opA + "," + opB;
+                }
+            }else{
+                cate1 = "其它";
+            }
+
+            if(name == null || name == ""){
+                $("#notName").show();
+            }else{
+                $("#notName").hide();
+
+                $.ajax({
+                    type: "post",
+                    url: "/background/back_mainPage",
+                    data : {
+                        type : "1",
+                        lan : crelan,
+                        lon : crelon,
+                        name : name,
+                        des : des,
+                        pictu : pictu,
+                        cate : cate1,
+                        adup : "0",
+                    },
+                 success: function(data){
+                            if(data == "yes"){
+                                $('#creNLM').modal('hide');
+                                $('#suc_creNLM').modal('show');
+                            }else{
+                                //未成功创建地标
+                            }
+                        }   
+             });
+            }
+        });
+
+        $("#succ_cre").click(function (){
+            window.location.href="/back_mainPage"; 
+        });
+
+
+        function showLMComment(LMC){
+            //alert(LMC.id);
+            $('#showComment').modal('show');
+            $(".cli_pub_com").hide();
+            $.ajax({
+                type: "post",
+                url: "/foreground/fore_mainPage",
+                data : {
+                    type : "1",
+                    LM_id : LMC.id,
+                },
+                success: function(data){
+                    if(data.length > 0){
+                        var com_content = "";
+                        for(var i = 0;i < data.length;i++){
+                            com_content += "<div class='widget'><div class='widget-header'><h2>" 
+                                    + "<strong>" + (i+1) + "</strong>" 
+                                    + "<strong>评论者</strong>"  + data[i].pub_name
+                                    + "&nbsp;&nbsp;&nbsp;<strong>评论日期</strong>"  + data[i].date
+                                    + "</h2><div class='additional-btn'><a href='#' class='hidden reload'><i class='icon-ccw-1'></i></a><a href='#' class='widget-toggle'><i class='icon-down-open-2'></i></a><a href='#' class='widget-close'><i class='icon-cancel-3'></i></a></div>/div><div class='widget-content padding' style='background-color:#FAFAFA;'>"
+                                    + data[i].info_content 
+                                    + "</div></div>";
+                        }
+                        $("#com_content").html(com_content);
+
+                    }else{
+                        //未成功创建地标
+                    }
+                }   
+             });
+            
+        }
+
+        $(".pub_com").click(function(){
+            $(".cli_pub_com").show("50");
+            $(".pub_com").hide("50");
+        });
+
+        $("#exit_pubcom").click(function(){
+            $(".cli_pub_com").hide("50");
+            $(".pub_com").show("50");
+        });
+
+    </script>
+
+
     </body>
 </html>

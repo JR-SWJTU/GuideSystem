@@ -11,6 +11,8 @@ var ErrorCode = require('./ErrorCode');
 
 var userRoutes = require('./routes/User');  //引入用户路由中间件
 var announcementRoutes = require('./routes/Announcement');  //引入服务公告路由中间件
+var feedbackRoutes = require('./routes/Feedback');  //引入意见反馈路由中间件
+var admissionNoticeRoutes = require('./routes/AdmissionNotice');  //引入意见反馈路由中间件
 var landmarkRoutes = require('./routes/Landmark');  //引入地标路由中间件
 
 var app = express();
@@ -41,6 +43,8 @@ app.use(session({
 // 路由规划
 app.use('/', userRoutes);//挂载user模块路由中间件
 app.use('/', announcementRoutes);
+app.use('/', feedbackRoutes);
+app.use('/', admissionNoticeRoutes);
 app.use('/', landmarkRoutes);
 
 

@@ -5,20 +5,10 @@ var ErrorCode = require('../ErrorCode');
 var User = require('../models/User').User;
 var Admin = require('../models/Admin').Admin;
 
-// 测试
-router.get('/', function(req, res) {
-	res.render('foreground/announcement', { title: '测试' });
-});
-
 //主页
 router.get('/mainPage', function(req, res) {
 	console.log("FindPage");
 	res.render('foreground/mainPage', { title: '主页' ,userName:req.query.userName});
-});
-
-
-router.get('/map', function(req, res) {
-	res.render('map', {  title: '主页'  });
 });
 
 // 登陆功能的路由
@@ -56,8 +46,6 @@ router.post('/login', function(req, res, next) {
 					console.log("用户登录");
 					var data = eval("(  { res: '1', userType : userType, userName: result.name} )");
 					res.send(data);
-					// res.render('mainPage',{ 'userName': result.name});
-					// res.redirect('/mainPage');
 				};			
 			}
 			else{
