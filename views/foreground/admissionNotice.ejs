@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>服务公告 | 交大生活指南系统</title>   
+        <title>入学引导 | 交大生活指南系统</title>   
        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="description" content="">
@@ -270,10 +270,10 @@
                         <a href='/mainPage'><i class='icon-home-3'></i><span>地标浏览</span> <span class="pull-right"></span></a>
                     </li>
                     <li >
-                        <a href='/mainPage/admissionNotice'><i class='icon-pencil-3'></i><span>入学引导</span> <span class="pull-right"></span></a>
+                        <a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>入学引导</span> <span class="pull-right"></span></a>
                     </li>
                     <li class='active'>
-                        <a href='javascript:void(0);'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
+                        <a href='/mainPage/announcement'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
                     </li>
                     <li >
                         <a href='/mainPage/feedback'><i class='fa fa-envelope'></i><span>意见反馈</span> <span class="pull-right"></span></a>
@@ -296,7 +296,7 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <div class="widget-header">
-                            <h2><i class='fa fa-table'></i><strong>&nbsp&nbsp服&nbsp务&nbsp公&nbsp告</strong></h2>
+                            <h2><i class='fa fa-pencil'></i><strong>&nbsp&nbsp入&nbsp学&nbsp引&nbsp导</strong></h2>
                             <div class="additional-btn">
                                 <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
                                 <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
@@ -304,39 +304,32 @@
                             </div>
                         </div>
 
-                        <div class="widget-content">
+                    <div class="col-sm-12">
+                        <div class="widget">
                             <div class="table-responsive">
-                                <table data-sortable class="table table-hover" id="announcement">
+                                <table class="table" >
                                     <tbody>
-                                    <% for(var i=0; i<result.length;i++){%>
                                     <tr>
-                                        <td style="width:8%;display:none" ><%= result[i]._id %></th>
-                                        <td style="width:8%;"><%= i+1 %></th>
-                                        <td style="width:72%;"><%= result[i].title %></td>
-                                        <td style="width:20%;" align="right"><%= result[i].date %></td>
+                                        <td align = center><img src="/images/headers/1.jpg" ></td>
                                     </tr>
-                                    <%}%>
+                                    <tr>
+                                        <td align = center>
+                                        <img src="/images/headers/2.jpg">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align = center>
+                                        <img src="/images/headers/3.jpg">
+                                        </td>
+                                    </tr>
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
                     </div>
 
-                    <div class=".col-md-4" align="right">
-                    <div class="btn-group" >
-                        <button type="button" class="btn btn-primary"><i class="fa fa-angle-left"></i>
-                                </button>
-                                <button class="btn btn-primary active">1</button>
-                                <button class="btn btn-primary">2</button>
-                                <button class="btn btn-primary">3</button>
-                                <button class="btn btn-primary">4</button>
-                                <button class="btn btn-primary">5</button>
-                                <button class="btn btn-primary">...</button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-angle-right"></i> 
-                        </button>
-                    </div>
-                    </div>
-
+   
                 </div>
             </div>      
         </div>
@@ -388,17 +381,10 @@
     <script src="/libs/prettify/prettify.js"></script>
 
     <script src="/js/init.js"></script>
-    <!-- Page Specific JS Libraries -->
-    <script src="/libs/jquery-datatables/js/jquery.dataTables.min.js"></script>
-    <script src="/libs/jquery-datatables/js/dataTables.bootstrap.js"></script>
-    <script src="/libs/jquery-datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
-    <script src="/js/pages/datatables.js"></script>
+
 
     <script type="text/javascript">
-        $("table tr").css("cursor","pointer").click(function(){
-            var announcement_id = $(this).children('td:eq(0)').html();
-            window.location.href = '/mainPage/announcement/detail?id=' + announcement_id ;
-        });
+
 
     </script>
     </body>

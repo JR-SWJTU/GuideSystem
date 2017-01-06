@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>服务公告 | 交大生活指南系统</title>   
+        <title>意见反馈 | 交大生活指南系统</title>   
        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="description" content="">
@@ -220,7 +220,7 @@
                             </ul>
                         </li>
                         <li class="right-opener">
-                            <a href="javascript:;" ><i class="fa fa-angle-double-left"></i><i class="fa fa-angle-double-right"></i></a>
+                            <a href="javascript:;" class="open-right"><i class="fa fa-angle-double-left"></i><i class="fa fa-angle-double-right"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -229,9 +229,6 @@
         </div>
     </div>
     <!-- Top Bar End -->
-
-
-
 
 
     <!-- Left Sidebar Start -->
@@ -273,10 +270,10 @@
                         <a href='/mainPage/admissionNotice'><i class='icon-pencil-3'></i><span>入学引导</span> <span class="pull-right"></span></a>
                     </li>
                     <li class='active'>
-                        <a href='javascript:void(0);'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
+                         <a href='/mainPage/announcement'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
                     </li>
                     <li >
-                        <a href='/mainPage/feedback'><i class='fa fa-envelope'></i><span>意见反馈</span> <span class="pull-right"></span></a>
+                        <a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>意见反馈</span> <span class="pull-right"></span></a>
                     </li>
                 </ul>                    
                 <div class="clearfix"></div>
@@ -285,7 +282,7 @@
         <div class="clearfix"></div><br><br><br>
         </div>
        </div>
-    <!-- Left Sidebar End -->           
+    <!-- Left Sidebar End -->   
 
 
     <!-- Start right content -->
@@ -293,51 +290,62 @@
                 
         <div class="content">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="widget">
-                        <div class="widget-header">
-                            <h2><i class='fa fa-table'></i><strong>&nbsp&nbsp服&nbsp务&nbsp公&nbsp告</strong></h2>
-                            <div class="additional-btn">
-                                <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
-                                <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
-                                <a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
+                <div class="col-sm-12 portlets">
+                        <div class="widget">
+                            <div class="widget-header transparent">
+                                <h2><strong>反 馈 意 见</strong></h2>
+                                <div class="additional-btn">
+                                    <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
+                                    <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
+                                    <a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="widget-content">
-                            <div class="table-responsive">
-                                <table data-sortable class="table table-hover" id="announcement">
-                                    <tbody>
-                                    <% for(var i=0; i<result.length;i++){%>
-                                    <tr>
-                                        <td style="width:8%;display:none" ><%= result[i]._id %></th>
-                                        <td style="width:8%;"><%= i+1 %></th>
-                                        <td style="width:72%;"><%= result[i].title %></td>
-                                        <td style="width:20%;" align="right"><%= result[i].date %></td>
-                                    </tr>
-                                    <%}%>
-                                    </tbody>
-                                </table>
+                            <div class="widget-content padding">
+                                <form role="form" id="registerForm">
+                                    <div class="form-group">
+                                        <label>意见大致描述（必填）</label>
+                                        <input type="text" class="form-control" id="title">
+                                    </div>
+                                    <div class="form-group">
+                                        <div><label>意见类型</label></div>
+                                        <div >
+                                            <label><input id="option1" type="checkbox" value="地标信息错误"><strong>地标信息错误</strong></label>
+                                            <label><input id="option2" type="checkbox" value="界面不够美观"><strong>界面不够美观</strong></label>
+                                            <label><input id="option3" type="checkbox" value="其他修改建议"><strong>其他修改建议</strong></label>
+                                            <label><input id="option4" type="checkbox" value="其他系统问题"><strong>其他系统问题</strong></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>意见详细描述</label>
+                                        <textarea class="form-control" id="content" style="height: 300px; resize: none;"></textarea>
+                                    </div>
+                                    <br>
+                                    <button type="button" class="btn btn-primary" id="feedbackSub">确认提交</button>
+                                </form>
                             </div>
-                        </div>
-                    </div>
+                    </div> 
 
-                    <div class=".col-md-4" align="right">
-                    <div class="btn-group" >
-                        <button type="button" class="btn btn-primary"><i class="fa fa-angle-left"></i>
-                                </button>
-                                <button class="btn btn-primary active">1</button>
-                                <button class="btn btn-primary">2</button>
-                                <button class="btn btn-primary">3</button>
-                                <button class="btn btn-primary">4</button>
-                                <button class="btn btn-primary">5</button>
-                                <button class="btn btn-primary">...</button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-angle-right"></i> 
-                        </button>
-                    </div>
-                    </div>
+                    <div id="tips" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-success">
+                                       您的意见已经成功提交，我们将会尽快处理
+                                </div>
+                            </div>
 
-                </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-dismiss="modal" id="sure">确认</button>
+                            </div>
+
+                          </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                      </div><!-- /.modal -->
+            </div>
             </div>      
         </div>
     <!-- End right content -->
@@ -388,17 +396,44 @@
     <script src="/libs/prettify/prettify.js"></script>
 
     <script src="/js/init.js"></script>
-    <!-- Page Specific JS Libraries -->
-    <script src="/libs/jquery-datatables/js/jquery.dataTables.min.js"></script>
-    <script src="/libs/jquery-datatables/js/dataTables.bootstrap.js"></script>
-    <script src="/libs/jquery-datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
-    <script src="/js/pages/datatables.js"></script>
 
     <script type="text/javascript">
-        $("table tr").css("cursor","pointer").click(function(){
-            var announcement_id = $(this).children('td:eq(0)').html();
-            window.location.href = '/mainPage/announcement/detail?id=' + announcement_id ;
+        $("#feedbackSub").click(function(){
+            var type ;
+            if($("#option1").is(':checked'))
+                type = $("#option1").val();
+            else if($("#option2").is(':checked'))
+                type = $("#option2").val();
+            else if($("#option3").is(':checked'))
+                type = $("#option3").val();
+            else if($("#option4").is(':checked'))
+                type = $("#option4").val();
+
+            var title = $("#title").val();
+            var content = $("#content").val();
+            $.ajax({
+                type: "post",
+                url: "/mainPage/feedback",
+                data : {
+                    type: type,
+                    title: title,
+                    content: content
+                },
+                 success: function(data){
+                        var info = eval(data);
+                        if(info.res == "1" ){
+                            $('#tips').modal('show');
+                        }
+                        else if(info.res == "0"){
+                            alert("反馈失败");
+                        }
+                    }   
+                 });
         });
+
+        $("#sure").click(function(){
+            window.location.href = "/mainPage";
+        })
 
     </script>
     </body>

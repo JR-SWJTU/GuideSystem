@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>服务公告 | 交大生活指南系统</title>   
+        <title>公告详情 | 交大生活指南系统</title>   
        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="description" content="">
@@ -220,7 +220,7 @@
                             </ul>
                         </li>
                         <li class="right-opener">
-                            <a href="javascript:;" ><i class="fa fa-angle-double-left"></i><i class="fa fa-angle-double-right"></i></a>
+                            <a href="javascript:;" class="open-right"><i class="fa fa-angle-double-left"></i><i class="fa fa-angle-double-right"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -229,9 +229,6 @@
         </div>
     </div>
     <!-- Top Bar End -->
-
-
-
 
 
     <!-- Left Sidebar Start -->
@@ -251,7 +248,7 @@
                   <a href="profile.html" class="rounded-image profile-image"><img src="images/users/user-100.jpg"></a>
                 </div>
                 <div class="col-xs-8">
-                    <div class="profile-text">欢迎 <b><%= user.name%></b></div>
+                    <div class="profile-text">欢迎 <b></b></div>
                     <div class="profile-buttons">
                       <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
                       <a href="#connect" class="open-right"><i class="fa fa-comments"></i></a>
@@ -273,7 +270,7 @@
                         <a href='/mainPage/admissionNotice'><i class='icon-pencil-3'></i><span>入学引导</span> <span class="pull-right"></span></a>
                     </li>
                     <li class='active'>
-                        <a href='javascript:void(0);'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
+                         <a href='/mainPage/announcement'><i class='fa fa-table'></i><span>服务公告</span> <span class="pull-right"></span></a>
                     </li>
                     <li >
                         <a href='/mainPage/feedback'><i class='fa fa-envelope'></i><span>意见反馈</span> <span class="pull-right"></span></a>
@@ -285,7 +282,7 @@
         <div class="clearfix"></div><br><br><br>
         </div>
        </div>
-    <!-- Left Sidebar End -->           
+    <!-- Left Sidebar End -->   
 
 
     <!-- Start right content -->
@@ -296,7 +293,7 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <div class="widget-header">
-                            <h2><i class='fa fa-table'></i><strong>&nbsp&nbsp服&nbsp务&nbsp公&nbsp告</strong></h2>
+                            <h2><i class='fa fa-table'></i><strong>&nbsp&nbsp服&nbsp务&nbsp公&nbsp告&nbsp——&nbsp公&nbsp告&nbsp详&nbsp情</strong></h2>
                             <div class="additional-btn">
                                 <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
                                 <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
@@ -304,38 +301,38 @@
                             </div>
                         </div>
 
-                        <div class="widget-content">
-                            <div class="table-responsive">
-                                <table data-sortable class="table table-hover" id="announcement">
-                                    <tbody>
-                                    <% for(var i=0; i<result.length;i++){%>
-                                    <tr>
-                                        <td style="width:8%;display:none" ><%= result[i]._id %></th>
-                                        <td style="width:8%;"><%= i+1 %></th>
-                                        <td style="width:72%;"><%= result[i].title %></td>
-                                        <td style="width:20%;" align="right"><%= result[i].date %></td>
-                                    </tr>
-                                    <%}%>
-                                    </tbody>
-                                </table>
+                        <div class="widget-content padding">
+                                <div id="container" >
+                                    <div id="header">
+                                        <div id="headerLeft">
+                                            <h2 id="sampleTitle" contenteditable="true">
+                                                <%= result.title%><br> 
+                                            </h2>
+                                        <hr>
+
+                                        </div>
+                                        <div id="headerRight">
+                                            <div contenteditable="true">
+                                                <p>
+                                                    &nbsp&nbsp&nbsp&nbsp
+                                                    <%= result.info_content%>
+                                                </p>
+                                                <br>
+                                                <p align="right">
+                                                    <%= result.date%>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+          
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class=".col-md-4" align="right">
-                    <div class="btn-group" >
-                        <button type="button" class="btn btn-primary"><i class="fa fa-angle-left"></i>
-                                </button>
-                                <button class="btn btn-primary active">1</button>
-                                <button class="btn btn-primary">2</button>
-                                <button class="btn btn-primary">3</button>
-                                <button class="btn btn-primary">4</button>
-                                <button class="btn btn-primary">5</button>
-                                <button class="btn btn-primary">...</button>
-                                <button type="button" class="btn btn-primary"><i class="fa fa-angle-right"></i> 
-                        </button>
-                    </div>
-                    </div>
+
+                   
 
                 </div>
             </div>      
@@ -395,10 +392,7 @@
     <script src="/js/pages/datatables.js"></script>
 
     <script type="text/javascript">
-        $("table tr").css("cursor","pointer").click(function(){
-            var announcement_id = $(this).children('td:eq(0)').html();
-            window.location.href = '/mainPage/announcement/detail?id=' + announcement_id ;
-        });
+    
 
     </script>
     </body>
