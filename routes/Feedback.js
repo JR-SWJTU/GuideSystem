@@ -4,7 +4,7 @@ var ErrorCode = require('../ErrorCode');
 
 var Information = require('../models/Information').Information;
 
-router.get('/mainPage/feedback', function(req, res) {
+	router.get('/mainPage/feedback', function(req, res) {
 	res.render('foreground/feedback',{user : req.session.user});
 });
 
